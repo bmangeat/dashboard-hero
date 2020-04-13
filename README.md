@@ -7,10 +7,10 @@
 - You can clone the repository in your folder.
 
 ```bash
-git clone https://github.com/bmangeat/.git
+git clone https://github.com/bmangeat/dashboard-hero.git
 ```
 
-> Architecture of repository
+Architecture of repository
 ````
 ├── styles
 ├── src

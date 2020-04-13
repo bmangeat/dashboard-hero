@@ -7,6 +7,10 @@
     "start": "parcel ./src/index.html --out-dir ./dist",
     "build": "parcel build ./src/index.html --out-dir ./dist"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bmangeat/dashboard-hero.git"
+  },
   "author": "Best league IMAC",
   "contributors": [
     "Andréa Guillot (https://github.com/AndreaGuillot)",
