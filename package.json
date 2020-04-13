@@ -1,0 +1,31 @@
+{
+  "name": "hero-dashboard",
+  "version": "1.0.0",
+  "description": "Hero's dashboard : you can find everything you need here!",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./src/index.html --out-dir ./dist",
+    "build": "parcel build ./src/index.html --out-dir ./dist"
+  },
+  "author": "Best league IMAC",
+  "contributors": [
+    "Andréa Guillot (https://github.com/AndreaGuillot)",
+    "Baptiste Ory (https://github.com/BaptisteOry)",
+    "Brice Mangeat (https://github.com/bmangeat)",
+    "Solène Mary-Vallée (https://github.com/SolHaine)"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@hyperapp/logger": "^0.5.0",
+    "axios": "^0.19.2",
+    "hyperapp": "^1.2.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-eslint": "^8.2.6",
+    "eslint": "^4.19.1",
+    "parcel": "^1.12.4",
+    "sass": "^1.26.3"
+  }
+}

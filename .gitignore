@@ -1,0 +1,17 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Ignore files
+.DS_Store
+package-lock.json
+
+# Nuxt.js build / generate output
+dist/
+# Gatsby files
+.cache/
+# Dependency directories
+node_modules/
+# IDE folders
+.idea/
