@@ -1,6 +1,6 @@
-import {h} from 'hyperapp'
+import {h} from 'hyperapp';
 
 export default (props) =>
-    h('header', { }, [
+    h('header', {}, [
         props.hero.name
-    ] )
+    ])

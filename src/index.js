@@ -8,4 +8,4 @@ import actions from './actions'
 import state from './state'
 import view from './components/views/DashboardView'
 
-withLogger(app)(state, actions, view, document.body);
+withLogger(app)(state, actions, view, document.body)
