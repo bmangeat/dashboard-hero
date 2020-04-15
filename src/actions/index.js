@@ -61,7 +61,7 @@ export default {
         let opt = sel.options[sel.selectedIndex]
         switch (opt.text) {
             case 'Batman':
-                actions.getData(69)
+                actions.getData(70)
                 break
             case 'Superman':
                 actions.getData(644)
