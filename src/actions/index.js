@@ -52,15 +52,22 @@ export default {
         actions.fetchHero(idHero)
     },
 
-    // TODO : Example -> We have to define heros
+    // TODO : We have to define heros
     /**
      * @desc Update state according to selected hero from header
      */
-    selectChange: () => (state, actions) => {
-        let sel = document.getElementById('list');
+    selectHero: () => (state, actions) => {
+        let sel = document.getElementById('list')
         let opt = sel.options[sel.selectedIndex]
-        opt.text === 'Batman' ? actions.getData(69) : actions.getData(644)
-
+        switch (opt.text) {
+            case 'Batman':
+                actions.getData(69)
+                break
+            case 'Superman':
+                actions.getData(644)
+                break
+        }
     }
 }
+
 
