@@ -2,7 +2,7 @@
 
 >This dashboard is created in the context of studies in [IMAC](https://www.ingenieur-imac.fr/). 
 
-#Quickstart
+##Quickstart
 
 - You can clone the repository in your folder.
 
@@ -25,11 +25,14 @@ Architecture of repository
 |     ├─ index.html
 |     └─ index.js
 ├─ package.json
-├─ .eslintrc
-├─ .babelrc
-└─ README.md
+├─ README.md
+└─ .gitignore
 ````
 
+- Install parcel globally
+```console
+npm install -g parcel-bundler
+```
 - Install node's modules on the repository
 ```console
 npm i
