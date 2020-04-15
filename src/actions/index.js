@@ -57,7 +57,7 @@ export default {
      * @desc Update state according to selected hero from header
      */
     selectHero: () => (state, actions) => {
-        let sel = document.getElementById('list')
+        let sel = document.getElementById('list-hero')
         let opt = sel.options[sel.selectedIndex]
         switch (opt.text) {
             case 'Batman':
@@ -65,6 +65,18 @@ export default {
                 break
             case 'Superman':
                 actions.getData(644)
+                break
+            case 'Joker':
+                actions.getData(370)
+                break
+            case 'Catwoman':
+                actions.getData(165)
+                break
+            case 'Jack-Jack':
+                actions.getData(351)
+                break
+            case 'Harley Quinn':
+                actions.getData(309)
                 break
         }
     }
