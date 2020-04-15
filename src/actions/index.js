@@ -50,5 +50,17 @@ export default {
     getData: (idHero) => (state, actions) => {
         actions.fetchWeather()
         actions.fetchHero(idHero)
+    },
+
+    // TODO : Example -> We have to define heros
+    /**
+     * @desc Update state according to selected hero from header
+     */
+    selectChange: () => (state, actions) => {
+        let sel = document.getElementById('list');
+        let opt = sel.options[sel.selectedIndex]
+        opt.text === 'Batman' ? actions.getData(69) : actions.getData(644)
+
     }
 }
+
