@@ -31,7 +31,7 @@ export default {
             occupation: '',
             base: ''
         },
-        connection: {
+        connections: {
             groupAffiliation: '',
             relatives: ''
         },

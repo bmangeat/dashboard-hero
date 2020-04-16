@@ -10,7 +10,18 @@ export default {
      * @param object Object from API corresponding to the hero
      */
     setHero: (object) => (state) => {
-        return {...state, hero: object}
+        return {
+            ...state, 
+            hero: {
+                name: object.name,
+                powerstats : object.powerstats,
+                biography : object.biography,
+                appearance : object.appearance,
+                work : object.work,
+                connections : object.connections,
+                image : object.image
+            }
+        }
     },
 
     /**
