@@ -13,15 +13,15 @@ export default (props) =>
         ]),
         h('div', {class: 'row'}, [
             h('div', {class: 'col-md-6'}, ['Groupe']),
-            h('div', {class: 'col-md-6'}, [props.hero.connections.groupAffiliation])
+            h('div', {class: 'col-md-6'}, [props.hero.connections['group-affiliation']])
         ]),
         h('div', {class: 'row'}, [
             h('div', {class: 'col-md-6'}, ['Proches']),
-            h('div', {class: 'col-md-6'}, [props.hero.connections.relatives])
+            h('div', {class: 'col-md-6'}, [props.hero.connections.relatives.replace(/\([^()]*\)/g,'').split(',').slice(0,2)])
         ]),
         h('div', {class: 'row'}, [
             h('div', {class: 'col-md-6'}, ['Lieu de naissance']),
-            h('div', {class: 'col-md-6'}, [props.hero.biography.placeOfBirth])
+            h('div', {class: 'col-md-6'}, [props.hero.biography['place-of-birth']])
         ])
     ])
 
