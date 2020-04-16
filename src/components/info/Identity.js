@@ -8,7 +8,7 @@ export default (props) =>
     h('section',{},[
         h('div', {class: 'component-title'}, ['Identité']),
         h('div', {class: 'row'}, [
-            //Avatar(props),
+            Avatar(props),
             Essential(props)
         ]),
         Carac(props),
