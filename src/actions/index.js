@@ -18,7 +18,7 @@ export default {
                 biography :{
                     fullName: object.biography['full-name'],
                     alterEgos: object.biography['alter-egos'],
-                    aliases: object.biography.aliases,
+                    aliases: object.biography.aliases.slice(0,2).join(', '),
                     placeOfBirth: object.biography['place-of-birth'],
                     firstAppearance: object.biography['first-appearance'],
                     publisher: object.biography.publisher,
@@ -27,14 +27,15 @@ export default {
                 appearance : {
                     gender: object.appearance.gender,
                     race: object.appearance.race,
-                    height: object.appearance.height,
+                    height: object.appearance.height.filter(elem => elem.includes('cm')),
+                    weight: object.appearance.weight.filter(elem => elem.includes('kg')),
                     eyeColor: object.appearance['eye-color'],
                     hairColor: object.appearance['hair-color']
                 },
                 work : object.work,
                 connections : {
-                    groupAffiliation: object.connections['group-affiliation'],
-                    relatives: object.connections.relatives
+                    groupAffiliation: object.connections['group-affiliation'].replace(/\([^()]*\)/g,'').split(',').slice(0,2).join(',').replace(/ \,/g, ',').split(';').slice(0,1),
+                    relatives: object.connections.relatives.replace(/\([^()]*\)/g,'').split(',').slice(0,2).join(',').replace(/ \,/g, ',')
                 },
                 image : object.image
             }

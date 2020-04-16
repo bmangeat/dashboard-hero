@@ -13,7 +13,7 @@ export default {
         biography: {
             fullName: '',
             alterEgos: '',
-            aliases: [],
+            aliases: '',
             placeOfBirth: '',
             firstAppearance: '',
             publisher: '',
