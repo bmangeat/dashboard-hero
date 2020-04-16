@@ -11,14 +11,31 @@ export default {
      */
     setHero: (object) => (state) => {
         return {
-            ...state, 
+            ...state,
             hero: {
                 name: object.name,
                 powerstats : object.powerstats,
-                biography : object.biography,
-                appearance : object.appearance,
+                biography :{
+                    fullName: object.biography['full-name'],
+                    alterEgos: object.biography['alter-egos'],
+                    aliases: object.biography.aliases,
+                    placeOfBirth: object.biography['place-of-birth'],
+                    firstAppearance: object.biography['first-appearance'],
+                    publisher: object.biography.publisher,
+                    alignment: object.biography.alignment
+                },
+                appearance : {
+                    gender: object.appearance.gender,
+                    race: object.appearance.race,
+                    height: object.appearance.height,
+                    eyeColor: object.appearance['eye-color'],
+                    hairColor: object.appearance['hair-color']
+                },
                 work : object.work,
-                connections : object.connections,
+                connections : {
+                    groupAffiliation: object.connections['group-affiliation'],
+                    relatives: object.connections.relatives
+                },
                 image : object.image
             }
         }
