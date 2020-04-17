@@ -1,7 +1,7 @@
 import {h} from 'hyperapp'
 
 export default (props) => props.hero.appearance.gender === 'Male' ?
-    h('div', {class:'col-md-6'},[
+    h('div', {class:'identity-avatar col-md-6 col-sm-6'},[
         h('svg', {version:'1.1', xmlns:'http://www.w3.org/2000/svg', x:0, y:0, viewBox: '0 0 425.2 425.2', style:'enable-background:new 0 0 425.2 425.2;'},
             [
                 h('g',{id:'peau'},[
@@ -67,7 +67,7 @@ export default (props) => props.hero.appearance.gender === 'Male' ?
             ])
 
     ]) :
-    h('div', {class: 'col-md-6'}, [
+    h('div', {class: 'identity-avatar col-md-6 col-sm-6'}, [
         h('svg', {version:'1.1', xmlns:'http://www.w3.org/2000/svg', x:0, y:0, viewBox: '0 0 425.2 425.2', style:'enable-background:new 0 0 425.2 425.2;'},
             [
                 h('g',{id:'peau'},[

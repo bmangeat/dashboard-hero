@@ -1,0 +1,162 @@
+// @variables
+$bg-comp-header: #242C38;
+$bg-compo-body: #191F28;
+
+$color-batman: #FFB700;
+$color-superman: #5b98fc;
+$color-catwoman:#bb54ff;
+$color-jack: #ea4335;
+$color-joker: #34a853;
+$color-harley:#eb64aa;
+
+.Batman {
+  .comp-identity .identity-body .identity-section .identity-subinformation {
+    border-bottom-color: $color-batman;
+  }
+}
+
+.Superman {
+  .comp-identity .identity-body .identity-section .identity-subinformation {
+    border-bottom-color: $color-superman;
+  }
+}
+
+.Catwoman {
+  .comp-identity .identity-body .identity-section .identity-subinformation {
+    border-bottom-color: $color-catwoman;
+  }
+}
+
+.Jack-Jack {
+  .comp-identity .identity-body .identity-section .identity-subinformation {
+    border-bottom-color: $color-jack;
+  }
+}
+
+.Joker {
+  .comp-identity .identity-body .identity-section .identity-subinformation {
+    border-bottom-color: $color-joker;
+  }
+}
+
+.Harley {
+  .comp-identity .identity-body .identity-section .identity-subinformation {
+    border-bottom-color: $color-harley;
+  }
+}
+
+
+
+
+.comp-identity {
+  border-radius: 0.5rem 0.5rem 0 0;
+
+
+  .comp-header {
+    background-color: $bg-comp-header;
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 140.62%;
+  }
+
+  .identity-body {
+    background-color: $bg-compo-body;
+    padding: 0 1rem;
+
+    .identity-main {
+      padding: 1rem 0;
+
+      .identity-avatar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 12.5rem;
+        height: 12.5rem;
+
+        .st0 {
+          fill: #F49E77;
+        }
+        .st1 {
+          fill: #D98968;
+        }
+        .st2 {
+          fill: #F8C09C;
+        }
+        .st3 {
+          fill: #D98968;
+          stroke: #D98A68;
+          stroke-miterlimit: 10;
+        }
+        .st4 {
+          fill: #010202;
+        }
+        .st5 {
+          fill: #221E1F;
+        }
+        .st6 {
+          fill: #111110;
+        }
+      }
+
+      .identity-essential {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h4 {
+          font-weight: bold;
+          font-size: 1.4rem;
+          line-height: 140.62%;
+          margin: 1rem 0;
+        }
+
+        .identity-sub-essential {
+          p {
+            font-weight: 300;
+            font-size: 0.9rem;
+            line-height: 140.62%;
+            margin: 0;
+          }
+        }
+      }
+
+    }
+
+    .identity-section {
+      h3 {
+
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 140.62%;
+        text-transform: uppercase;
+        margin: 0.5rem 0;
+      }
+
+      .identity-subinformation {
+        border-bottom: 1px solid;
+        padding: 0.5rem 0;
+        margin: 0 0.5rem;
+
+
+        .identity-section-key {
+          font-size: 0.7rem;
+          font-weight: 600;
+          line-height: 1.1rem;
+          padding: 0.5rem 0;
+        }
+
+        .identity-section-value {
+          font-size: 0.7rem;
+          font-weight: 300;
+          line-height: 1.1rem;
+          padding: 0.5rem 0;
+        }
+
+      }
+    }
+  }
+
+
+}

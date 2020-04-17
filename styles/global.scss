@@ -1,39 +1,52 @@
 // @variables
-$font-stack:    Helvetica, sans-serif;
+$font-stack: 'Open Sans', sans-serif;
+$font-color: #F0F0F0;
+$bg-board: #0E131A;
 
-$background-batman: #212121;
-$color-batman: #ffbb00;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 18px
+  }
+}
 
-$background-superman: #3A6F9B;;
-$color-superman: #C80000;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 18px
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 18px
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  html {
+    font-size: 20px
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 20px
+  }
+}
 
 // @layout
 body {
-  height: 100vh;
+  height: 100%;
   margin: 0;
-  font: 100% $font-stack;
+  font: 1rem $font-stack;
+  color: $font-color;
+  background-color: $bg-board;
 }
 
-header{
+header {
   padding: 1rem;
 }
-
-.Batman{
-  height: 100%;
-  background-color: $background-batman;
-  color: $color-batman;
-}
-
-.Superman{
-  height: 100%;
-  background-color: $background-superman;
-  color: $color-superman;
-}
-
-.st0{fill:#F49E77;}
-.st1{fill:#D98968;}
-.st2{fill:#F8C09C;}
-.st3{fill:#D98968;stroke:#D98A68;stroke-miterlimit:10;}
-.st4{fill:#010202;}
-.st5{fill:#221E1F;}
-.st6{fill:#111110;}
