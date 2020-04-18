@@ -1,3 +1,8 @@
+// @variables
+$font-stack: 'Open Sans', sans-serif;
+$font-color: #F0F0F0;
+$bg-board: #0E131A;
+
 .full-width {width: 100%}
 .full-height {height: 100%}
 
@@ -6,7 +11,46 @@
   align-items: center;
 }
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 18px
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 18px
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 18px
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  html {
+    font-size: 20px
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 20px
+  }
+}
+
 // @layout
 body {
+  height: 100%;
   margin: 0;
+  font: 1rem $font-stack;
+  color: $font-color;
+  background-color: $bg-board;
 }
