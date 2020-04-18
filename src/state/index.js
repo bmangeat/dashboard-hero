@@ -38,5 +38,7 @@ export default {
         image: {
             url: ''
         }
-    }
+    },
+    todoItems: [],
+    addItemInput: ''
 }

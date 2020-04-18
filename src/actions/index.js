@@ -107,7 +107,94 @@ export default {
                 actions.getData(309)
                 break
         }
+    },
+
+    /**
+     * @desc Set the state with the correct todo values
+     * @param todos Data from the API corresponding to the todo list
+     */
+    setTodos: (todos) => (state) => {
+        return { ...state, todoItems: todos }
+    },
+
+    /**
+     * @desc Get the todos from API
+     */
+    fetchTodos: () => (state, actions) => {
+        axios.get('https://agile-escarpment-40479.herokuapp.com/todos')
+            .then((response) => {
+                actions.setTodos(response.data.map(todo => ({
+                    done: todo.completed,
+                    text: todo.title,
+                    id: todo.id,
+                    createdAt: new Date().toISOString()
+                })))
+            })
+            .catch((err) => console.error('err', err))
+        return state
+    },
+
+    /**
+     * @desc Switch done value in todo item
+     * @param id id of the todo item
+     */
+    toggleDone: (id) => (state) => {
+        const itemAtId = state.todoItems.find(item => item.id === id)
+        if (itemAtId === undefined) {
+            console.error(`Item id ${id} could not be found, this should not happen`)
+            return
+        }
+
+        axios.put('https://agile-escarpment-40479.herokuapp.com/todos', {
+            completed: !itemAtId.done,
+            id: id,
+        })
+        
+        return {
+            ...state,
+            todoItems: state.todoItems
+                .filter(item => item.id !== id)
+                .concat({ ...itemAtId, done: !itemAtId.done })
+        }
+    },
+    /**
+     * @desc Update addItemInput value with input value
+     */
+    updateTodoInput: (event) => (state) => ({ ...state, addItemInput: event.target.value}),
+
+    /**
+     * @desc Add item in input to todo list + post in API
+     */
+    addTodoItem: () => (state) => {
+        //TODO: POST new todos
+        const input = state.addItemInput
+        if (input.length === 0) {
+            return state
+        }
+        
+        axios.post('https://agile-escarpment-40479.herokuapp.com/todos', {
+            completed: false,
+            title: input,
+            id: Math.random().toString(16).substring(2, 8),
+            createdAt: new Date().toISOString()
+        })
+        .then((response) => {
+            console.log(response)
+        })
+        .catch((err) => console.error('err', err))
+        
+        return {
+            ...state,
+            todoItems: state.todoItems.concat({
+                done: false,
+                text: input,
+                id: Math.random().toString(16).substring(2, 8),
+                createdAt: new Date().toISOString()
+            }),
+            addItemInput: ''
+        }
     }
+
 }
 
 
