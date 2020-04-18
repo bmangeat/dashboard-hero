@@ -1,11 +1,11 @@
 // @variables
 $font-stack:    Helvetica, sans-serif;
 
-$background-batman: #212121;
-$color-batman: #ffbb00;
+$background-batman: rgb(33, 33, 33);
+$color-batman: rgb(255, 187, 0);
 
-$background-superman: #3A6F9B;;
-$color-superman: #C80000;
+$background-superman: rgb(58, 111, 155);;
+$color-superman: rgb(200, 0, 0);
 
 // @layout
 body {
@@ -20,12 +20,21 @@ header{
 
 .Batman{
   height: 100%;
-  background-color: $background-batman;
+  //background-color: $background-batman;
   color: $color-batman;
 }
 
 .Superman{
   height: 100%;
-  background-color: $background-superman;
+  //background-color: $background-superman;
   color: $color-superman;
+}
+
+#capacitiesChart {
+  background-color: #191F28;
+  padding: 30px;
+  width: 50%;
+  height: 550px;
+  margin: auto;
+  box-sizing: border-box;
 }

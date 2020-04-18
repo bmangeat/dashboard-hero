@@ -1,10 +1,14 @@
 export default {
+    color : '',
+    charts : {
+        capacitiesChart: null
+    },
     weather: '',                                // "main" : Mist, Clear, Drizzle, Clouds, Rain, Fog, Dust, Haze, Snow, Thunderstorm
     hero: {
         name: '',
         powerstats: {
             intelligence: 0,
-            strengh: 0,
+            strength: 0,
             speed: 0,
             durability: 0,
             power: 0,

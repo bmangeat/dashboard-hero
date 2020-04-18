@@ -48,6 +48,7 @@ export default {
         const request = axios.get(API_HERO + id)
         request.then(response => {
             actions.setHero(response.data)
+            actions.updateCapacitiesChart()
         });
         return state
     },
@@ -90,23 +91,142 @@ export default {
         switch (opt.text) {
             case 'Batman':
                 actions.getData(69)
+                state.color = '#ffb700'
                 break
             case 'Superman':
                 actions.getData(644)
+                state.color = '#5b98ff'
                 break
             case 'Joker':
                 actions.getData(370)
+                state.color = '#bb54ff'
                 break
             case 'Catwoman':
                 actions.getData(165)
+                state.color = '#ea4335'
                 break
             case 'Jack-Jack':
                 actions.getData(351)
+                state.color = '#34a853'
                 break
             case 'Harley Quinn':
                 actions.getData(309)
+                state.color = '#eb64aa'
                 break
         }
+    },
+
+    /**
+     * @desc Create the capacities chart and store it the state. Use Chart.js.
+     * @param element Canvas in the DOM
+     */
+    createCapacitiesChart: (element) => (state) => {
+        Chart.pluginService.register({
+            beforeDraw : chart => {
+                const { ctx, scale, config } = chart
+                const { xCenter, yCenter, drawingArea: radius } = scale
+                ctx.beginPath();
+                ctx.arc(xCenter, yCenter, radius, 0, Math.PI * 2)
+                ctx.fillStyle = config.options.chartArea.backgroundColor
+                ctx.fill()
+            }
+        });
+        const config = {
+            type: 'radar',
+            data: {
+                labels: ['Intelligence', 'Force', 'Vitesse', 'Résistance', 'Puissance', 'Combat'],
+                datasets: [{
+                    label: 'Capacitées',
+                    lineTension: 0.1,
+                    pointHoverBackgroundColor: "#ffffff",
+                    pointHoverRadius: 5,
+                    data: [0, 0, 0, 0, 0, 0]
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                chartArea: { 
+                    backgroundColor: '#0e131aff'
+                },
+                scale: {
+                    gridLines: {
+                        lineWidth: 1.5,
+                        circular: true,
+                        color: '#242c38ff'
+                    },
+                    angleLines: {
+                        color: '#242c38ff',
+                        lineWidth: 1.5
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        fontColor: '#ffffff',
+                        fontFamily: "'Open sans', sans-serif",
+                        fontSize: 10,
+                        fontStyle: '300',
+                        min: 0,
+                        max: 100,
+                        stepSize: 25,
+                        showLabelBackdrop: false,
+                    },
+                    pointLabels: {
+                        fontColor: '#ffffff',
+                        fontFamily: "'Open sans', sans-serif",
+                        fontStyle: '300',
+                        fontSize: 14
+                    }
+                },
+                legend: {
+                    display : false
+                },
+                tooltips: {
+                    bodyFontSize: 14,
+                    bodyFontFamily: "'Open sans', sans-serif",
+                    cornerRadius: 2,
+                    displayColors: false,
+                    callbacks: {
+                        title: function(tooltipItems, data) {
+                            return '';
+                        },
+                        label: function(tooltipItem, data) {
+                            var datasetLabel = '';
+                            var label = data.labels[tooltipItem.index];
+                            return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                        }
+                    }
+                },
+                animation: {
+                    duration: 1500
+                },
+                hover: {
+                    animationDuration: 0
+                }
+            }
+        };
+        state.charts.capacitiesChart = new Chart(element.getContext('2d'), config);
+    },
+
+    /**
+     * @desc Update the capacities chart. Use Chart.js.
+     */
+    updateCapacitiesChart: () => (state) => {
+        const dataCapacitiesChart = state.charts.capacitiesChart.data.datasets[0];
+        const heroPowerstats = state.hero.powerstats;
+        const heroColor = state.color
+        const color = Chart.helpers.color
+        dataCapacitiesChart.data = [
+            heroPowerstats.intelligence, 
+            heroPowerstats.strength, 
+            heroPowerstats.speed, 
+            heroPowerstats.durability, 
+            heroPowerstats.power, 
+            heroPowerstats.combat
+        ]
+        dataCapacitiesChart.backgroundColor = color(heroColor).alpha(0.5).rgbString(),
+        dataCapacitiesChart.borderColor = heroColor,
+        dataCapacitiesChart.pointBackgroundColor = heroColor,
+        dataCapacitiesChart.pointBackgroundColor = heroColor,
+        state.charts.capacitiesChart.update();
     }
 }
 
