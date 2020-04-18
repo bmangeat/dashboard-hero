@@ -1,8 +1,8 @@
 import {h} from 'hyperapp'
-import Biography from '../info/IdentityBio'
-import Carac from '../info/IdentityCarac'
-import Avatar from '../info/IdentityAvatar'
-import Essential from '../info/IdentityEssential'
+import Biography from './/IdentityBio'
+import Carac from './/IdentityCarac'
+import Avatar from './/IdentityAvatar'
+import Essential from './/IdentityEssential'
 
 export default (props) =>
     h('section', {class: 'comp-identity col-md-4 col-sm-12 col-xd-12'}, [
@@ -17,8 +17,8 @@ export default (props) =>
                 }),
                 Essential({
                     name: props.hero.name,
-                    fullName: props.hero.name,
-                    aliases: props.hero.aliases
+                    fullName: props.hero.biography.fullName,
+                    aliases: props.hero.biography.aliases
                 })
             ]),
             Carac({

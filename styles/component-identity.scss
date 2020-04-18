@@ -51,7 +51,6 @@ $color-harley:#eb64aa;
 .comp-identity {
   border-radius: 0.5rem 0.5rem 0 0;
 
-
   .comp-header {
     background-color: $bg-comp-header;
     padding: 0.25rem 1rem;
@@ -63,7 +62,8 @@ $color-harley:#eb64aa;
 
   .identity-body {
     background-color: $bg-compo-body;
-    padding: 0 1rem;
+    padding: 0 1rem 1rem 1rem;
+    border-radius: 0 0 10px 10px;
 
     .identity-main {
       padding: 1rem 0;
