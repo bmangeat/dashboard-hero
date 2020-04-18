@@ -46,11 +46,14 @@ export default {
      * @desc Get datas from API 'superheroapi'
      */
     fetchHero: (id) => (state, actions) => {
-        const request = axios.get(API_HERO + id)
-        request.then(response => {
-            actions.setHero(response.data)
-            actions.updateCapacitiesChart()
-        });
+        axios.get(API_HERO + id)
+            .then(response => {
+                actions.setHero(response.data)
+                actions.updateCapacitiesChart()
+            })
+            .catch(error => {
+                console.error(error)
+            })
         return state
     },
 
@@ -66,10 +69,13 @@ export default {
      * @desc Get datas from API 'openweathermap'
      */
     fetchWeather: () => (state, actions) => {
-        const request = axios.get(API_WEATHER)
-        request.then(response => {
-            actions.setWeather(response.data.weather[0].main)
-        })
+        axios.get(API_WEATHER)
+            .then(response => {
+                actions.setWeather(response.data.weather[0].main)
+            })
+            .catch(error => {
+                console.error(error)
+            })
         return state
     },
 
@@ -86,6 +92,7 @@ export default {
      * @desc Update state according to selected hero from header
      */
     selectHero: () => (state, actions) => {
+        actions.addLoader()
         let sel = document.getElementById('list-hero')
         let opt = sel.options[sel.selectedIndex]
         switch (opt.text) {
@@ -161,7 +168,7 @@ export default {
             },
             options: {
                 maintainAspectRatio: false,
-                chartArea: { 
+                chartArea: {
                     backgroundColor: '#0e131aff'
                 },
                 scale: {
@@ -231,11 +238,11 @@ export default {
         const heroColor = state.color
         const color = Chart.helpers.color
         dataCapacitiesChart.data = [
-            heroPowerstats.intelligence, 
-            heroPowerstats.strength, 
-            heroPowerstats.speed, 
-            heroPowerstats.durability, 
-            heroPowerstats.power, 
+            heroPowerstats.intelligence,
+            heroPowerstats.strength,
+            heroPowerstats.speed,
+            heroPowerstats.durability,
+            heroPowerstats.power,
             heroPowerstats.combat
         ]
         dataCapacitiesChart.backgroundColor = color(heroColor).alpha(0.5).rgbString(),
@@ -243,7 +250,17 @@ export default {
         dataCapacitiesChart.pointBackgroundColor = heroColor,
         dataCapacitiesChart.pointBackgroundColor = heroColor,
         state.charts.capacitiesChart.update();
+    },
+    /**
+     * @desc Display loader when hero is changing (put class on body)
+     */
+    addLoader: () => {
+        document.body.classList.remove('loaded')
+        document.body.classList.add('fix-body')
+        setTimeout(() => document.body.classList.add('loaded'), 1500)
+        setTimeout(() => document.body.classList.remove('fix-body'), 2500)
     }
+
 }
 
 

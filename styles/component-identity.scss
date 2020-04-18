@@ -13,17 +13,36 @@ $color-harley:#eb64aa;
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-batman;
   }
+  #page-loading{
+      background-color: $color-batman;
+    }
+  header .header-profile p strong {
+      color: $color-batman
+  }
 }
 
 .Superman {
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-superman;
   }
+  #page-loading{
+    background-color: $color-superman;
+  }
+  header .header-profile p strong {
+    color: $color-superman;
+  }
+
 }
 
 .Catwoman {
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-catwoman;
+  }
+  #page-loading{
+    background-color: $color-catwoman;
+  }
+  header .header-profile p strong {
+    color: $color-catwoman;
   }
 }
 
@@ -31,11 +50,23 @@ $color-harley:#eb64aa;
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-jack;
   }
+   #page-loading{
+      background-color: $color-jack;
+   }
+   header .header-profile p strong {
+      color: $color-jack;
+   }
 }
 
 .Joker {
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-joker;
+  }
+  #page-loading{
+    background-color: $color-joker;
+  }
+  header .header-profile p strong {
+    color: $color-joker;
   }
 }
 
@@ -43,6 +74,12 @@ $color-harley:#eb64aa;
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-harley;
   }
+   #page-loading{
+      background-color: $color-harley;
+    }
+   header .header-profile p strong {
+      color: $color-harley;
+   }
 }
 
 

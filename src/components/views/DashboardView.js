@@ -3,6 +3,7 @@ import Capacities from '../capacities/Capacities'
 
 import Header from '../header/Header'
 import Identity from '../identity/Identity'
+import Loader from "../loader/Loader"
 
 export default (state, actions) => h('div',
     {id: 'heroWindow', class: state.hero.name.replace(/ .*/, ''), oncreate: () => actions.selectHero()},
@@ -20,8 +21,8 @@ export default (state, actions) => h('div',
                 Capacities({
                     createCapacitiesChart: (element) => actions.createCapacitiesChart(element)
                 })
-            ]),
+            ])
         ]),
-        
+     Loader()
     ])
 
