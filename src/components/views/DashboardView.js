@@ -1,10 +1,11 @@
 import {h} from 'hyperapp'
+import Capacities from '../capacities/Capacities'
 
 import Header from '../header/Header'
 import Identity from '../identity/Identity'
 
 export default (state, actions) => h('div',
-    {class: state.hero.name.replace(/ .*/, ''), oncreate: () => actions.selectHero()},
+    {id: 'heroWindow', class: state.hero.name.replace(/ .*/, ''), oncreate: () => actions.selectHero()},
     [
         Header({
             name: state.hero.name,
@@ -20,5 +21,9 @@ export default (state, actions) => h('div',
             ])
         ])
 
+        }),
+        Capacities({
+            createCapacitiesChart: (element) => actions.createCapacitiesChart(element)
+        })
     ])
 

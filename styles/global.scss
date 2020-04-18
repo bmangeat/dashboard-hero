@@ -51,3 +51,12 @@ body {
   color: $font-color;
   background-color: $bg-board;
 }
+
+#capacitiesChart {
+  background-color: #191F28;
+  padding: 30px;
+  width: 50%;
+  height: 550px;
+  margin: auto;
+  box-sizing: border-box;
+}
