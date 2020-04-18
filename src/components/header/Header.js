@@ -5,7 +5,7 @@ import HeaderImg from "./HeaderImg"
 import HeaderLogo from "./HeaderLogo";
 
 export default (props) =>
-    h('header', {class: "row middle-md"}, [
+    h('header', {class: "row"}, [
         //props.hero.name
         HeaderLogo,
         HeaderSelect({

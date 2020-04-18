@@ -1,8 +1,7 @@
 import {h} from 'hyperapp'
 
 export default () =>
-    h('div', {class: 'col-md-2 logo-league full-height vertical-align'}, [
-        h('a', {class: 'full-width', href:'https://www.ingenieur-imac.fr/', target:'_blank' }, [
+    h('div', {class: 'col-md-2 col-sm-2 col-xs-5 logo-league full-height vertical-align'}, [
             h('svg', {
                 class:'full-height',
                 version: '1.1',
@@ -68,5 +67,4 @@ export default () =>
                 ])
 
             ])
-        ])
     ])
