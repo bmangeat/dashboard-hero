@@ -10,10 +10,24 @@ export default (props) =>
         h('div', {class: 'identity-body'}, [
 
             h('div', {class: 'identity-main row middle-md'}, [
-                Avatar(props),
-                Essential(props)
+                Avatar({
+                    gender: props.hero.appearance.gender,
+                    eye: props.hero.appearance.eyeColor,
+                    hair: props.hero.appearance.hairColor
+                }),
+                Essential({
+                    name: props.hero.name,
+                    fullName: props.hero.name,
+                    aliases: props.hero.aliases
+                })
             ]),
-            Carac(props),
-            Biography(props)
+            Carac({
+                appearance: props.hero.appearance
+            }),
+            Biography({
+                work: props.hero.work,
+                connections: props.hero.connections,
+                birth: props.hero.biography.placeOfBirth
+            })
         ])
     ])

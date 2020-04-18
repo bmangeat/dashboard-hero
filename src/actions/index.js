@@ -81,7 +81,6 @@ export default {
         actions.fetchHero(idHero)
     },
 
-    // TODO : We have to define heros
     /**
      * @desc Update state according to selected hero from header
      */
