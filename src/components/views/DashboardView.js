@@ -2,6 +2,7 @@ import {h} from 'hyperapp'
 
 import Header from '../header/Header'
 import Identity from '../identity/Identity'
+import Loader from "../loader/Loader"
 
 export default (state, actions) => h('div',
     {class: state.hero.name.replace(/ .*/, ''), oncreate: () => actions.selectHero()},
@@ -18,7 +19,9 @@ export default (state, actions) => h('div',
                     hero: state.hero,
                 })
             ])
-        ])
+        ]),
+
+     Loader()
 
     ])
 

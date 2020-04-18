@@ -85,6 +85,7 @@ export default {
      * @desc Update state according to selected hero from header
      */
     selectHero: () => (state, actions) => {
+        actions.addLoader()
         let sel = document.getElementById('list-hero')
         let opt = sel.options[sel.selectedIndex]
         switch (opt.text) {
@@ -123,7 +124,15 @@ export default {
             default:
                 return colorToChange
         }
+    },
+
+    addLoader: () => {
+        document.body.classList.remove('loaded')
+        document.body.classList.add('fix-body')
+        setTimeout(() => document.body.classList.add('loaded'), 1500)
+        setTimeout(()=>document.body.classList.remove('fix-body'), 2500)
     }
+
 }
 
 
