@@ -3,18 +3,14 @@ $font-stack: 'Open Sans', sans-serif;
 $font-color: #F0F0F0;
 $bg-board: #0E131A;
 
-.full-width {
-  width: 100%
-}
-
-.full-height {
-  height: 100%
-}
-
+.full-width {width: 100%}
+.full-height {height: 100%}
 .vertical-align {
   display: flex;
   align-items: center;
 }
+
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -23,12 +19,8 @@ $bg-board: #0E131A;
   }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  html {
-    font-size: 18px
-  }
-}
+$background-batman: #212121;
+$color-batman: #ffbb00;
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
