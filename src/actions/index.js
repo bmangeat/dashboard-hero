@@ -46,10 +46,13 @@ export default {
      * @desc Get datas from API 'superheroapi'
      */
     fetchHero: (id) => (state, actions) => {
-        const request = axios.get(API_HERO + id)
-        request.then(response => {
-            actions.setHero(response.data)
-        });
+        axios.get(API_HERO + id)
+            .then(response => {
+                actions.setHero(response.data)
+            })
+            .catch(error => {
+                console.error(error)
+            })
         return state
     },
 
@@ -65,10 +68,13 @@ export default {
      * @desc Get datas from API 'openweathermap'
      */
     fetchWeather: () => (state, actions) => {
-        const request = axios.get(API_WEATHER)
-        request.then(response => {
-            actions.setWeather(response.data.weather[0].main)
-        })
+        axios.get(API_WEATHER)
+            .then(response => {
+                actions.setWeather(response.data.weather[0].main)
+            })
+            .catch(error => {
+                console.error(error)
+            })
         return state
     },
 
@@ -130,7 +136,7 @@ export default {
         document.body.classList.remove('loaded')
         document.body.classList.add('fix-body')
         setTimeout(() => document.body.classList.add('loaded'), 1500)
-        setTimeout(()=>document.body.classList.remove('fix-body'), 2500)
+        setTimeout(() => document.body.classList.remove('fix-body'), 2500)
     }
 
 }
