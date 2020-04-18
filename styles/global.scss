@@ -1,31 +1,12 @@
-// @variables
-$font-stack:    Helvetica, sans-serif;
+.full-width {width: 100%}
+.full-height {height: 100%}
 
-$background-batman: #212121;
-$color-batman: #ffbb00;
-
-$background-superman: #3A6F9B;;
-$color-superman: #C80000;
+.vertical-align {
+  display: flex;
+  align-items: center;
+}
 
 // @layout
 body {
-  height: 100vh;
   margin: 0;
-  font: 100% $font-stack;
-}
-
-header{
-  padding: 1rem;
-}
-
-.Batman{
-  height: 100%;
-  background-color: $background-batman;
-  color: $color-batman;
-}
-
-.Superman{
-  height: 100%;
-  background-color: $background-superman;
-  color: $color-superman;
 }

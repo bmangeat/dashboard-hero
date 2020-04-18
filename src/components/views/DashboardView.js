@@ -1,5 +1,5 @@
 import {h} from 'hyperapp'
-import Header from '../header/HeaderBar'
+import Header from '../header/Header'
 
 export default (state, actions) => h('div',
     {class: state.hero.name.replace(/ .*/, ''), oncreate: () => actions.selectHero()},
