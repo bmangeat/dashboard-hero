@@ -13,17 +13,15 @@ export default (state, actions) => h('div',
             selectHero: actions.selectHero
         }),
         h('div', {class: 'container-fluid'}, [
-
             h('div', {class: 'row'}, [
                 Identity({
                     hero: state.hero,
+                }),
+                Capacities({
+                    createCapacitiesChart: (element) => actions.createCapacitiesChart(element)
                 })
-            ])
-        ])
-
-        }),
-        Capacities({
-            createCapacitiesChart: (element) => actions.createCapacitiesChart(element)
-        })
+            ]),
+        ]),
+        
     ])
 

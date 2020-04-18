@@ -99,22 +99,21 @@ export default {
                 break
             case 'Joker':
                 actions.getData(370)
-                state.color = '#bb54ff'
+                state.color = '#34a853'
                 break
             case 'Catwoman':
                 actions.getData(165)
-                state.color = '#ea4335'
+                state.color = '#bb54ff'
                 break
             case 'Jack-Jack':
                 actions.getData(351)
-                state.color = '#34a853'
+                state.color = '#ea4335'
                 break
             case 'Harley Quinn':
                 actions.getData(309)
                 state.color = '#eb64aa'
                 break
         }
-<<<<<<<
     },
 
     /**
@@ -131,7 +130,6 @@ export default {
             default:
                 return colorToChange
         }
-=======
     },
 
     /**
@@ -245,7 +243,6 @@ export default {
         dataCapacitiesChart.pointBackgroundColor = heroColor,
         dataCapacitiesChart.pointBackgroundColor = heroColor,
         state.charts.capacitiesChart.update();
->>>>>>>
     }
 }
 
