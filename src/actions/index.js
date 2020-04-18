@@ -9,35 +9,35 @@ export default {
      * @desc Allow to set the state with the correct value
      * @param object Object from API corresponding to the hero
      */
-    setHero: (object) => (state) => {
+    setHero: (object) => (state, actions) => {
         return {
             ...state,
             hero: {
                 name: object.name,
-                powerstats : object.powerstats,
-                biography :{
+                powerstats: object.powerstats,
+                biography: {
                     fullName: object.biography['full-name'],
                     alterEgos: object.biography['alter-egos'],
-                    aliases: object.biography.aliases.slice(0,2).join(', '),
+                    aliases: object.biography.aliases.slice(0, 2).join(', '),
                     placeOfBirth: object.biography['place-of-birth'],
                     firstAppearance: object.biography['first-appearance'],
                     publisher: object.biography.publisher,
                     alignment: object.biography.alignment
                 },
-                appearance : {
+                appearance: {
                     gender: object.appearance.gender,
                     race: object.appearance.race,
                     height: object.appearance.height.filter(elem => elem.includes('cm')),
                     weight: object.appearance.weight.filter(elem => elem.includes('kg')),
-                    eyeColor: object.appearance['eye-color'],
-                    hairColor: object.appearance['hair-color']
+                    eyeColor: actions.modifyColor(object.appearance['eye-color'].toLowerCase()),
+                    hairColor: actions.modifyColor(object.appearance['hair-color'].toLowerCase())
                 },
-                work : object.work,
-                connections : {
-                    groupAffiliation: object.connections['group-affiliation'].replace(/\([^()]*\)/g,'').split(',').slice(0,2).join(',').replace(/ \,/g, ',').split(';').slice(0,1),
-                    relatives: object.connections.relatives.replace(/\([^()]*\)/g,'').split(',').slice(0,2).join(',').replace(/ \,/g, ',')
+                work: object.work,
+                connections: {
+                    groupAffiliation: object.connections['group-affiliation'].replace(/\([^()]*\)/g, '').split(',').slice(0, 2).join(',').replace(/ \,/g, ',').split(';').slice(0, 1),
+                    relatives: object.connections.relatives.replace(/\([^()]*\)/g, '').split(',').slice(0, 2).join(',').replace(/ \,/g, ',')
                 },
-                image : object.image
+                image: object.image
             }
         }
     },
@@ -57,7 +57,7 @@ export default {
      * @desc Allow to set the state with the correct value
      * @param item String from API corresponding to the main weather
      */
-    setWeather: (item) => (state) =>{
+    setWeather: (item) => (state) => {
         return {...state, weather: item}
     },
 
@@ -106,6 +106,22 @@ export default {
             case 'Harley Quinn':
                 actions.getData(309)
                 break
+        }
+    },
+
+    /**
+     * @desc Allow to convert string color to custom hexa
+     * @param colorToChange Color (string) from API
+     * @returns {string|*} String corresponding to custom color, or return default api's result
+     */
+    modifyColor: (colorToChange) => {
+        switch (colorToChange) {
+            case 'blue':
+                return '#5b98fc'
+            case 'blond':
+                return '#ffffcc'
+            default:
+                return colorToChange
         }
     }
 }

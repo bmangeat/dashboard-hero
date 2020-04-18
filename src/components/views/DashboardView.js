@@ -10,9 +10,9 @@ export default (state, actions) => h('div',
             hero: state.hero,
             selectHero: actions.selectHero
         }),
-        h('div', {class: 'row first-row'}, [
+        h('div', {class: 'row'}, [
             Identity({
-                hero: state.hero
+                hero: state.hero,
             })
         ])
 
