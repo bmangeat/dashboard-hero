@@ -1,5 +1,5 @@
 header {
-  padding: 1rem;
+  padding: 0.7rem 1rem;
   .logo-league {
 
     .bg-league {
@@ -20,17 +20,19 @@ header {
 
   background: #191F28;
   border: 1px solid #242C38;
-  height: 80px;
+  height: 4rem;
 
   .header-profile {
     p {
       color: #F0F0F0;
       text-align: right;
       width: 100%;
+      font-size: 0.9rem;
 
       strong {
         color: #ffbb00;
         text-indent: 5px;
+        font-weight: 600;
       }
     }
   }
