@@ -1,7 +1,7 @@
 import {h} from 'hyperapp'
 
 export default (props) => props.gender === 'Male' ?
-    h('div', {class: 'identity-avatar col-md-6 col-sm-6'}, [
+    h('div', {class: 'identity-avatar col-md-6 col-sm-6 col-xs-6'}, [
         h('svg', {
                 version: '1.1',
                 xmlns: 'http://www.w3.org/2000/svg',
@@ -119,7 +119,7 @@ export default (props) => props.gender === 'Male' ?
             ])
 
     ]) :
-    h('div', {class: 'identity-avatar col-md-6 col-sm-6'}, [
+    h('div', {class: 'identity-avatar col-md-6 col-sm-6 col-xs-6'}, [
         h('svg', {
                 version: '1.1',
                 xmlns: 'http://www.w3.org/2000/svg',
