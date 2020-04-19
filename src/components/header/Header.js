@@ -1,21 +1,21 @@
-import {h} from 'hyperapp'
+import { h } from 'hyperapp'
+
 import HeaderSelect from './HeaderSelect'
 import HeaderProfile from "./HeaderProfile"
 import HeaderImg from "./HeaderImg"
 import HeaderLogo from "./HeaderLogo";
 
 export default (props) =>
-    h('header', {class: "row"}, [
-        //props.hero.name
-        HeaderLogo,
-        HeaderSelect({
+    <header class='row'>
+        {HeaderLogo}
+        {HeaderSelect({
             selectHero: props.selectHero
-        }),
-        HeaderProfile({
-            name: props.name,
-        }),
-        HeaderImg({
+        })}
+        {HeaderProfile({
+            name: props.name
+        })}
+        {HeaderImg({
             photo: props.photo
-        })
-    ])
+        })}
+    </header>
 

@@ -1,28 +1,26 @@
-import {h} from 'hyperapp'
+import { h } from 'hyperapp'
 import Capacities from '../capacities/Capacities'
 
 import Header from '../header/Header'
 import Identity from '../identity/Identity'
 import Loader from "../loader/Loader"
 
-export default (state, actions) => h('div',
-    {id: 'heroWindow', class: state.hero.name.replace(/ .*/, ''), oncreate: () => actions.selectHero()},
-    [
-        Header({
+export default (state, actions) =>
+    <div id='heroWindow' class={state.hero.name.replace(/ .*/, '')} oncreate={() => actions.selectHero()}>
+        {Header({
             name: state.hero.name,
             photo: state.hero.image.url,
             selectHero: actions.selectHero
-        }),
-        h('div', {class: 'container-fluid'}, [
-            h('div', {class: 'row'}, [
-                Identity({
+        })}
+        <div class='container-fluid'>
+            <div class='row'>
+                {Identity({
                     hero: state.hero,
-                }),
-                Capacities({
+                })}
+                {Capacities({
                     createCapacitiesChart: (element) => actions.createCapacitiesChart(element)
-                })
-            ])
-        ]),
-     Loader()
-    ])
-
+                })}
+            </div>
+        </div>
+        {Loader()}
+    </div>

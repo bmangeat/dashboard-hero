@@ -1,26 +1,23 @@
-import {h} from 'hyperapp'
+import { h } from 'hyperapp'
 
-export default (state, actions) =>
-    h('div', {id: 'page-loading'}, [
-
-        h('div', {class: 'body-loader'}, [
-            h('span', {}, [
-                h('span', {}, []),
-                h('span', {}, []),
-                h('span', {}, []),
-                h('span', {}, [])
-            ]),
-            h('div', {class: 'base'}, [
-                h('span', {}, []),
-                h('div', {class: 'face'}, []),
-
-            ]),
-
-        ]),
-        h('span', {class: 'longfazers'}, [
-            h('span', {}, []),
-            h('span', {}, []),
-            h('span', {}, []),
-            h('span', {}, [])
-        ])
-    ])
+export default () =>
+    <div id="page-loading">
+        <div class="body-loader">
+            <span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+            <div class="base">
+                <span></span>
+                <div class="face"></div>
+            </div>
+        </div>
+        <span class="longfazers">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+    </div>
