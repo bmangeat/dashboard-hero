@@ -1,12 +1,12 @@
 import { h } from 'hyperapp'
-import Capacities from '../capacities/Capacities'
 
 import Header from '../header/Header'
 import Identity from '../identity/Identity'
-import Loader from "../loader/Loader"
+import Capacities from '../capacities/Capacities'
+import Loader from '../loader/Loader'
 
 export default (state, actions) =>
-    <div id='heroWindow' class={state.hero.name.replace(/ .*/, '')} oncreate={() => actions.selectHero()}>
+    <div id='heroWindow' class={state.hero.name.replace(/ .*/, '')} oncreate={actions.selectHero}>
         {Header({
             name: state.hero.name,
             photo: state.hero.image.url,

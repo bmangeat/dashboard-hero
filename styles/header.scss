@@ -1,63 +1,56 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .header-profile {
-    display: none
+    display: none;
   }
   #list-hero {
-  text-align-last: center;
-}
-
+    text-align-last: center;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-
 }
-
 
 header {
   padding: 0.7rem 1rem;
 
   .logo-league {
-
     .bg-league {
-      fill: #181F29;
+      fill: #181f29;
     }
 
     .stroke-league {
       fill: none;
-      stroke: #10151B;
+      stroke: #10151b;
       stroke-width: 8;
       stroke-miterlimit: 10;
     }
 
     .grey-league {
-      fill: #D1D1D1;
+      fill: #d1d1d1;
     }
   }
 
-  background: #191F28;
-  border: 1px solid #242C38;
+  background: #191f28;
+  border: 1px solid #242c38;
   height: 4rem;
 
   .header-profile {
     p {
-      color: #F0F0F0;
+      color: #f0f0f0;
       text-align: right;
       width: 100%;
       font-size: 0.9rem;
@@ -74,18 +67,17 @@ header {
     clip-path: circle();
     background-position: center;
     background-size: contain;
-
   }
 
   #list-hero {
-    background: #0E131A;
+    background: #0e131a;
     font-family: "Open-sans", sans-serif;
     font-size: 0.7rem;
-    color: #F0F0F0;
+    color: #f0f0f0;
     border: none;
     -webkit-border-radius: 0;
     border-radius: 0;
-    outline: 1px solid #0E131A;
+    outline: 1px solid #0e131a;
     outline-offset: -1px;
     height: 70%;
     width: 100%;
@@ -93,13 +85,5 @@ header {
     option {
       border-radius: 0;
     }
-
-
   }
-
-
 }
-
-
-
-

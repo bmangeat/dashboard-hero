@@ -1,19 +1,18 @@
-.fix-body{
+.fix-body {
   height: 100vh;
   overflow: hidden;
 }
 
-
-.loaded #page-loading{
-  left:100%;
+.loaded #page-loading {
+  left: 100%;
   transition: left ease-in-out 1s;
 
-  .longfazers{
+  .longfazers {
     opacity: 0;
   }
 }
 
-#page-loading{
+#page-loading {
   height: 100vh;
   width: 100vw;
   background-color: white;
@@ -22,7 +21,6 @@
   top: 0;
   z-index: 9999;
   transition: background-color ease-in-out 1s;
-
 }
 
 .body-loader {
@@ -32,7 +30,7 @@
   top: 50%;
   margin-left: -50px;
   left: 50%;
-  animation: speeder .4s linear infinite;
+  animation: speeder 0.4s linear infinite;
 
   > span {
     height: 5px;
@@ -111,17 +109,17 @@
   height: 1px;
   background: #000;
   position: absolute;
-  animation: fazer1 .2s linear infinite;
+  animation: fazer1 0.2s linear infinite;
 }
 
 .body-loader > span > span:nth-child(2) {
   top: 3px;
-  animation: fazer2 .4s linear infinite;
+  animation: fazer2 0.4s linear infinite;
 }
 
 .body-loader > span > span:nth-child(3) {
   top: 1px;
-  animation: fazer3 .4s linear infinite;
+  animation: fazer3 0.4s linear infinite;
   animation-delay: -1s;
 }
 
@@ -223,24 +221,24 @@
 
     &:nth-child(1) {
       top: 20%;
-      animation: lf .6s linear infinite;
+      animation: lf 0.6s linear infinite;
       animation-delay: -5s;
     }
 
     &:nth-child(2) {
       top: 40%;
-      animation: lf2 .8s linear infinite;
+      animation: lf2 0.8s linear infinite;
       animation-delay: -1s;
     }
 
     &:nth-child(3) {
       top: 60%;
-      animation: lf3 .6s linear infinite;
+      animation: lf3 0.6s linear infinite;
     }
 
     &:nth-child(4) {
       top: 80%;
-      animation: lf4 .5s linear infinite;
+      animation: lf4 0.5s linear infinite;
       animation-delay: -3s;
     }
   }

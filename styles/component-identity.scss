@@ -1,23 +1,23 @@
 // @variables
-$bg-comp-header: #242C38;
-$bg-compo-body: #191F28;
+$bg-comp-header: #242c38;
+$bg-compo-body: #191f28;
 
-$color-batman: #FFB700;
+$color-batman: #ffb700;
 $color-superman: #5b98fc;
-$color-catwoman:#bb54ff;
+$color-catwoman: #bb54ff;
 $color-jack: #ea4335;
 $color-joker: #34a853;
-$color-harley:#eb64aa;
+$color-harley: #eb64aa;
 
 .Batman {
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-batman;
   }
-  #page-loading{
-      background-color: $color-batman;
-    }
+  #page-loading {
+    background-color: $color-batman;
+  }
   header .header-profile p strong {
-      color: $color-batman
+    color: $color-batman;
   }
 }
 
@@ -25,20 +25,19 @@ $color-harley:#eb64aa;
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-superman;
   }
-  #page-loading{
+  #page-loading {
     background-color: $color-superman;
   }
   header .header-profile p strong {
     color: $color-superman;
   }
-
 }
 
 .Catwoman {
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-catwoman;
   }
-  #page-loading{
+  #page-loading {
     background-color: $color-catwoman;
   }
   header .header-profile p strong {
@@ -50,19 +49,19 @@ $color-harley:#eb64aa;
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-jack;
   }
-   #page-loading{
-      background-color: $color-jack;
-   }
-   header .header-profile p strong {
-      color: $color-jack;
-   }
+  #page-loading {
+    background-color: $color-jack;
+  }
+  header .header-profile p strong {
+    color: $color-jack;
+  }
 }
 
 .Joker {
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-joker;
   }
-  #page-loading{
+  #page-loading {
     background-color: $color-joker;
   }
   header .header-profile p strong {
@@ -74,16 +73,13 @@ $color-harley:#eb64aa;
   .comp-identity .identity-body .identity-section .identity-subinformation {
     border-bottom-color: $color-harley;
   }
-   #page-loading{
-      background-color: $color-harley;
-    }
-   header .header-profile p strong {
-      color: $color-harley;
-   }
+  #page-loading {
+    background-color: $color-harley;
+  }
+  header .header-profile p strong {
+    color: $color-harley;
+  }
 }
-
-
-
 
 .comp-identity {
   border-radius: 0.5rem 0.5rem 0 0;
@@ -113,24 +109,24 @@ $color-harley:#eb64aa;
         height: 12.5rem;
 
         .st0 {
-          fill: #F49E77;
+          fill: #f49e77;
         }
         .st1 {
-          fill: #D98968;
+          fill: #d98968;
         }
         .st2 {
-          fill: #F8C09C;
+          fill: #f8c09c;
         }
         .st3 {
-          fill: #D98968;
-          stroke: #D98A68;
+          fill: #d98968;
+          stroke: #d98a68;
           stroke-miterlimit: 10;
         }
         .st4 {
           fill: #010202;
         }
         .st5 {
-          fill: #221E1F;
+          fill: #221e1f;
         }
         .st6 {
           fill: #111110;
@@ -158,12 +154,10 @@ $color-harley:#eb64aa;
           }
         }
       }
-
     }
 
     .identity-section {
       h3 {
-
         font-weight: 600;
         font-size: 1rem;
         line-height: 140.62%;
@@ -175,7 +169,6 @@ $color-harley:#eb64aa;
         border-bottom: 1px solid;
         padding: 0.5rem 0;
         margin: 0 0.5rem;
-
 
         .identity-section-key {
           font-size: 0.7rem;
@@ -190,10 +183,7 @@ $color-harley:#eb64aa;
           line-height: 1.1rem;
           padding: 0.5rem 0;
         }
-
       }
     }
   }
-
-
 }

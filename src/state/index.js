@@ -3,7 +3,7 @@ export default {
     charts : {
         capacitiesChart: null
     },
-    weather: '',                                // "main" : Mist, Clear, Drizzle, Clouds, Rain, Fog, Dust, Haze, Snow, Thunderstorm
+    weather: '', // "main" : Mist, Clear, Drizzle, Clouds, Rain, Fog, Dust, Haze, Snow, Thunderstorm
     hero: {
         name: '',
         powerstats: {

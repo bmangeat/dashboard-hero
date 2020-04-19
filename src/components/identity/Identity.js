@@ -1,9 +1,9 @@
 import { h } from 'hyperapp'
 
-import Biography from './/IdentityBio'
-import Carac from './/IdentityCarac'
-import Avatar from './/IdentityAvatar'
-import Essential from './/IdentityEssential'
+import Avatar from './IdentityAvatar'
+import Essential from './IdentityEssential'
+import Carac from './IdentityCarac'
+import Biography from './IdentityBio'
 
 export default (props) =>
     <section class='comp-identity col-md-4 col-sm-12 col-xd-12'>

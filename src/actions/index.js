@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const API_HERO = 'https://superheroapi.com/api.php/10213784867090388/'                                                      // url superheroapi with key : 10213784867090388
-const API_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url openweathermap with key : 57a5dad53fd98ea8812e586a2b18d67e
-                                                                                                                            //                    and idcity (NYC) : 5128581
+const API_HERO = 'https://superheroapi.com/api.php/10213784867090388/'                                                      // url SuperHero API with key : 10213784867090388
+const API_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url OpenWeatherMap with key : 57a5dad53fd98ea8812e586a2b18d67e
+                                                                                                                            // and id city (NYC) : 5128581
 export default {
 
     /**
@@ -43,7 +43,7 @@ export default {
     },
 
     /**
-     * @desc Get datas from API 'superheroapi'
+     * @desc Get datas from API 'SuperHero API'
      */
     fetchHero: (id) => (state, actions) => {
         axios.get(API_HERO + id)
@@ -62,11 +62,11 @@ export default {
      * @param item String from API corresponding to the main weather
      */
     setWeather: (item) => (state) => {
-        return {...state, weather: item}
+        return { ...state, weather: item }
     },
 
     /**
-     * @desc Get datas from API 'openweathermap'
+     * @desc Get datas from API 'OpenWeatherMap'
      */
     fetchWeather: () => (state, actions) => {
         axios.get(API_WEATHER)
@@ -84,7 +84,7 @@ export default {
      * @param idHero Corresponding to one hero from API : get all datas
      */
     getData: (idHero) => (state, actions) => {
-        actions.fetchWeather()
+        actions.fetchWeather
         actions.fetchHero(idHero)
     },
 
@@ -93,8 +93,8 @@ export default {
      */
     selectHero: () => (state, actions) => {
         actions.addLoader()
-        let sel = document.getElementById('list-hero')
-        let opt = sel.options[sel.selectedIndex]
+        const sel = document.getElementById('list-hero')
+        const opt = sel.options[sel.selectedIndex]
         switch (opt.text) {
             case 'Batman':
                 actions.getData(70)
@@ -124,28 +124,12 @@ export default {
     },
 
     /**
-     * @desc Allow to convert string color to custom hexa
-     * @param colorToChange Color (string) from API
-     * @returns {string|*} String corresponding to custom color, or return default api's result
-     */
-    modifyColor: (colorToChange) => {
-        switch (colorToChange) {
-            case 'blue':
-                return '#5b98fc'
-            case 'blond':
-                return '#ffffcc'
-            default:
-                return colorToChange
-        }
-    },
-
-    /**
-     * @desc Create the capacities chart and store it the state. Use Chart.js.
+     * @desc Create the capacities chart and store it the state. Use Chart.js
      * @param element Canvas in the DOM
      */
     createCapacitiesChart: (element) => (state) => {
         Chart.pluginService.register({
-            beforeDraw : chart => {
+            beforeDraw: chart => {
                 const { ctx, scale, config } = chart
                 const { xCenter, yCenter, drawingArea: radius } = scale
                 ctx.beginPath();
@@ -200,7 +184,7 @@ export default {
                     }
                 },
                 legend: {
-                    display : false
+                    display: false
                 },
                 tooltips: {
                     bodyFontSize: 14,
@@ -208,10 +192,10 @@ export default {
                     cornerRadius: 2,
                     displayColors: false,
                     callbacks: {
-                        title: function(tooltipItems, data) {
+                        title: function (tooltipItems, data) {
                             return '';
                         },
-                        label: function(tooltipItem, data) {
+                        label: function (tooltipItem, data) {
                             var datasetLabel = '';
                             var label = data.labels[tooltipItem.index];
                             return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
@@ -230,7 +214,7 @@ export default {
     },
 
     /**
-     * @desc Update the capacities chart. Use Chart.js.
+     * @desc Update the capacities chart. Use Chart.js
      */
     updateCapacitiesChart: () => (state) => {
         const dataCapacitiesChart = state.charts.capacitiesChart.data.datasets[0];
@@ -246,11 +230,12 @@ export default {
             heroPowerstats.combat
         ]
         dataCapacitiesChart.backgroundColor = color(heroColor).alpha(0.5).rgbString(),
-        dataCapacitiesChart.borderColor = heroColor,
-        dataCapacitiesChart.pointBackgroundColor = heroColor,
-        dataCapacitiesChart.pointBackgroundColor = heroColor,
-        state.charts.capacitiesChart.update();
+            dataCapacitiesChart.borderColor = heroColor,
+            dataCapacitiesChart.pointBackgroundColor = heroColor,
+            dataCapacitiesChart.pointBackgroundColor = heroColor,
+            state.charts.capacitiesChart.update();
     },
+
     /**
      * @desc Display loader when hero is changing (put class on body)
      */
@@ -259,6 +244,22 @@ export default {
         document.body.classList.add('fix-body')
         setTimeout(() => document.body.classList.add('loaded'), 1500)
         setTimeout(() => document.body.classList.remove('fix-body'), 2500)
+    },
+
+    /**
+     * @desc Allow to convert string color to custom hexa
+     * @param colorToChange Color (string) from API
+     * @returns {string|*} String corresponding to custom color, or return default API's result
+     */
+    modifyColor: (colorToChange) => {
+        switch (colorToChange) {
+            case 'blue':
+                return '#5b98fc'
+            case 'blond':
+                return '#ffffcc'
+            default:
+                return colorToChange
+        }
     }
 
 }

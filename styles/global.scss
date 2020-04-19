@@ -1,21 +1,23 @@
 // @variables
-$font-stack: 'Open Sans', sans-serif;
-$font-color: #F0F0F0;
-$bg-board: #0E131A;
+$font-stack: "Open Sans", sans-serif;
+$font-color: #f0f0f0;
+$bg-board: #0e131a;
 
-.full-width {width: 100%}
-.full-height {height: 100%}
+.full-width {
+  width: 100%;
+}
+.full-height {
+  height: 100%;
+}
 .vertical-align {
   display: flex;
   align-items: center;
 }
 
-
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   html {
-    font-size: 18px
+    font-size: 18px;
   }
 }
 
@@ -25,21 +27,21 @@ $color-batman: #ffbb00;
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   html {
-    font-size: 18px
+    font-size: 18px;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   html {
-    font-size: 20px
+    font-size: 20px;
   }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   html {
-    font-size: 20px
+    font-size: 20px;
   }
 }
 
