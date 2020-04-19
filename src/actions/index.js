@@ -152,7 +152,6 @@ export default {
                 }]
             },
             options: {
-                maintainAspectRatio: false,
                 chartArea: {
                     backgroundColor: '#0e131aff'
                 },
@@ -206,7 +205,9 @@ export default {
                 },
                 hover: {
                     animationDuration: 0
-                }
+                },
+                responsive: true,
+                maintainAspectRatio: false
             }
         }
         state.charts.capacitiesChart = new Chart(element.getContext('2d'), config)
