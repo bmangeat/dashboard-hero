@@ -4,7 +4,8 @@ $bg-comp-body: #191F28;
 
 // @layout
 .comp-weather {
-    width: 25rem;
+    color: white;
+    width: 30%;
 
     .comp-header {
         background-color: $bg-comp-header;
@@ -29,7 +30,11 @@ $bg-comp-body: #191F28;
                 text-align: center;
                 position: absolute;
                 width: 100%;
-                margin-top: 8px;
+
+                p {
+                    margin: auto;
+                    padding : 0.5rem;
+                }
             }
 
             .illustration {
@@ -82,7 +87,8 @@ $bg-comp-body: #191F28;
                 .st31{fill:#E7302A;}
 
                 .logo {
-                    margin: 2px;
+                    margin-left: 4px;
+                    margin-right: 4px;
                 }
 
             }

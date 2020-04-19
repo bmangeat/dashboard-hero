@@ -39,7 +39,9 @@ export default (props) =>
 
                 props.weather === 'Clear' ?
                 h('div', {class: 'info-weather'}, [
-                    h('div', {class: 'message'}, ['La vie est belle à ' + props.hero.work.base + " : aucun vilain à l'horizon !"]),
+                    h('div', {class: 'message'}, [
+                        h('p', {}, ['La vie est belle à ' + props.hero.work.base + " : aucun vilain à l'horizon !"])
+                    ]),
                     h('div', {class: 'illustration'}, [
                         h('svg', {version:"1.1", xmlns:"http://www.w3.org/2000/svg", x:"0px", y:"0px", viewBox:"0 0 550 290", style:"enable-background:new 0 0 550 290;"}, [
                             h('g', {id:"Background"}, [
@@ -92,7 +94,9 @@ export default (props) =>
 
                 props.weather === 'Clouds' || props.weather === 'Dust' || props.weather === 'Haze' ?
                 h('div', {class: 'info-weather'}, [
-                    h('div', {class: 'message'}, ['Les oiseaux chantent à ' + props.hero.work.base + ' et les vilains se cachent !']),
+                    h('div', {class: 'message'}, [
+                        h('p', {}, ['Les oiseaux chantent à ' + props.hero.work.base + ' et les vilains se cachent !'])
+                    ]),
                     h('div', {class: 'illustration'}, [
                         h('svg', {version:"1.1", xmlns:"http://www.w3.org/2000/svg", x:"0px", y:"0px", viewBox:"0 0 550 290", style:"enable-background:new 0 0 550 290;"}, [
                             h('g', {id:"Background"}, [
@@ -154,7 +158,9 @@ export default (props) =>
 
                 props.weather === 'Mist' || props.weather === 'Drizzle' || props.weather === 'Fog' ?
                 h('div', {class: 'info-weather'}, [
-                    h('div', {class: 'message'}, ['Les vilains se font discrets à ' + props.hero.work.base + '...']),
+                    h('div', {class: 'message'}, [
+                        h('p', {}, ['Les vilains se font discrets à ' + props.hero.work.base + '...'])
+                    ]),
                     h('div', {class: 'illustration'}, [
                         h('svg', {version:"1.1", xmlns:"http://www.w3.org/2000/svg", x:"0px", y:"0px", viewBox:"0 0 550 290", style:"enable-background:new 0 0 550 290;"}, [
                             h('g', {id:"Background"}, [
@@ -216,7 +222,9 @@ export default (props) =>
 
                 props.weather === 'Rain' ?
                 h('div', {class: 'info-weather'}, [
-                    h('div', {class: 'message'}, ['Les vilains sont de sortie dans les rues de ' + props.hero.work.base + ' !']),
+                    h('div', {class: 'message'}, [
+                        h('p', {}, ['Les vilains sont de sortie dans les rues de ' + props.hero.work.base + ' !'])
+                    ]),
                     h('div', {class: 'illustration'}, [
                         h('svg', {version:"1.1", xmlns:"http://www.w3.org/2000/svg", x:"0px", y:"0px", viewBox:"0 0 550 290", style:"enable-background:new 0 0 550 290;"}, [
                             h('g', {id:"Background"}, [
@@ -277,7 +285,9 @@ export default (props) =>
                 ]):
 
                 h('div', {class: 'info-weather'}, [
-                    h('div', {class: 'message'}, ['Invasion de super-vilains à ' + props.hero.work.base + ' !']),
+                    h('div', {class: 'message'}, [
+                        h('p', {}, ['Invasion de super-vilains à ' + props.hero.work.base + ' !'])
+                    ]),
                     h('div', {class: 'illustration'}, [
                         h('svg', {version:"1.1", xmlns:"http://www.w3.org/2000/svg", x:"0px", y:"0px", viewBox:"0 0 550 290", style:"enable-background:new 0 0 550 290;"}, [
                             h('g', {id:"Background"}, [
