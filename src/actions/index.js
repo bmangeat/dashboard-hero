@@ -184,30 +184,21 @@ export default {
         const id = Math.random().toString(16).substring(2, 8)
         const date = new Date().toISOString()
 
-        // axios.post('https://agile-escarpment-40479.herokuapp.com/todos', {
-        //     completed: false,
-        //     _id: id,
-        //     title: input,
-        //     userId: 70,
-        //     createdAt: date,
-        //     updatedAt: date,
-        //     __v: 0,
-        //     id: id
-        // })
-        // .then((response) => {
-        //     console.log(response)
-        // })
-        // .catch((err) => console.error('err', err.response))
+        axios.post('https://agile-escarpment-40479.herokuapp.com/todos', {
+            completed: false,
+            title: input,
+            userId: 70,
+        })
+        .then((response) => {
+            console.log(response)
+        })
+        .catch((err) => console.error('err', err.response))
         
+        actions.fetchTodos()
+
         return {
             ...state,
-            todoItems: state.todoItems.concat({
-                done: false,
-                text: input,
-                id: id,
-                createdAt: date
-            }),
-            addItemInput: ''
+            addItemInput: ""
         }
     }
 
