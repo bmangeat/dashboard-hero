@@ -127,7 +127,7 @@ export default {
                     done: todo.completed,
                     text: todo.title,
                     id: todo.id,
-                    createdAt: new Date().toISOString()
+                    createdAt: todo.createdAt
                 })))
             })
             .catch((err) => console.error('err', err))
@@ -145,10 +145,20 @@ export default {
             return
         }
 
-        axios.put('https://agile-escarpment-40479.herokuapp.com/todos', {
+        axios.put('https://agile-escarpment-40479.herokuapp.com/todos/'+id, {
             completed: !itemAtId.done,
-            id: id,
+            _id: id,
+            title: itemAtId.text,
+            userId: 70,
+            createdAt: itemAtId.createdAt,
+            updatedAt: new Date().toISOString(),
+            __v: 0,
+            id: id
         })
+        .then((response) => {
+            console.log(response.status)
+        })
+        .catch((err) => console.error('err', err.response))
         
         return {
             ...state,
@@ -166,30 +176,36 @@ export default {
      * @desc Add item in input to todo list + post in API
      */
     addTodoItem: () => (state) => {
-        //TODO: POST new todos
         const input = state.addItemInput
         if (input.length === 0) {
             return state
         }
         
-        axios.post('https://agile-escarpment-40479.herokuapp.com/todos', {
-            completed: false,
-            title: input,
-            id: Math.random().toString(16).substring(2, 8),
-            createdAt: new Date().toISOString()
-        })
-        .then((response) => {
-            console.log(response)
-        })
-        .catch((err) => console.error('err', err))
+        const id = Math.random().toString(16).substring(2, 8)
+        const date = new Date().toISOString()
+
+        // axios.post('https://agile-escarpment-40479.herokuapp.com/todos', {
+        //     completed: false,
+        //     _id: id,
+        //     title: input,
+        //     userId: 70,
+        //     createdAt: date,
+        //     updatedAt: date,
+        //     __v: 0,
+        //     id: id
+        // })
+        // .then((response) => {
+        //     console.log(response)
+        // })
+        // .catch((err) => console.error('err', err.response))
         
         return {
             ...state,
             todoItems: state.todoItems.concat({
                 done: false,
                 text: input,
-                id: Math.random().toString(16).substring(2, 8),
-                createdAt: new Date().toISOString()
+                id: id,
+                createdAt: date
             }),
             addItemInput: ''
         }
