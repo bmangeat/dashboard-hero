@@ -1,6 +1,5 @@
 import {app} from 'hyperapp'
-import {withLogger} from "@hyperapp/logger"
-import Chart from 'chart.js';
+import {withLogger} from '@hyperapp/logger'
 
 import '../styles/*.css'
 import '../styles/*.scss'

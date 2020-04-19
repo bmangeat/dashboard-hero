@@ -1,8 +1,9 @@
 import axios from 'axios'
+import Chart from 'chart.js'
 
 const API_HERO = 'https://superheroapi.com/api.php/10213784867090388/'                                                      // url SuperHero API with key : 10213784867090388
 const API_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url OpenWeatherMap with key : 57a5dad53fd98ea8812e586a2b18d67e
-                                                                                                                            // and id city (NYC) : 5128581
+// and id city (NYC) : 5128581
 export default {
 
     /**
@@ -34,8 +35,8 @@ export default {
                 },
                 work: object.work,
                 connections: {
-                    groupAffiliation: object.connections['group-affiliation'].replace(/\([^()]*\)/g, '').split(',').slice(0, 2).join(',').replace(/ \,/g, ',').split(';').slice(0, 1),
-                    relatives: object.connections.relatives.replace(/\([^()]*\)/g, '').split(',').slice(0, 2).join(',').replace(/ \,/g, ',')
+                    groupAffiliation: object.connections['group-affiliation'].replace(/\([^()]*\)/g, '').split(',').slice(0, 2).join(',').replace(/ ,/g, ',').split(';').slice(0, 1),
+                    relatives: object.connections.relatives.replace(/\([^()]*\)/g, '').split(',').slice(0, 2).join(',').replace(/ ,/g, ',')
                 },
                 image: object.image
             }
@@ -96,30 +97,30 @@ export default {
         const sel = document.getElementById('list-hero')
         const opt = sel.options[sel.selectedIndex]
         switch (opt.text) {
-            case 'Batman':
-                actions.getData(70)
-                state.color = '#ffb700'
-                break
-            case 'Superman':
-                actions.getData(644)
-                state.color = '#5b98ff'
-                break
-            case 'Joker':
-                actions.getData(370)
-                state.color = '#34a853'
-                break
-            case 'Catwoman':
-                actions.getData(165)
-                state.color = '#bb54ff'
-                break
-            case 'Jack-Jack':
-                actions.getData(351)
-                state.color = '#ea4335'
-                break
-            case 'Harley Quinn':
-                actions.getData(309)
-                state.color = '#eb64aa'
-                break
+        case 'Batman':
+            actions.getData(70)
+            state.color = '#ffb700'
+            break
+        case 'Superman':
+            actions.getData(644)
+            state.color = '#5b98ff'
+            break
+        case 'Joker':
+            actions.getData(370)
+            state.color = '#34a853'
+            break
+        case 'Catwoman':
+            actions.getData(165)
+            state.color = '#bb54ff'
+            break
+        case 'Jack-Jack':
+            actions.getData(351)
+            state.color = '#ea4335'
+            break
+        case 'Harley Quinn':
+            actions.getData(309)
+            state.color = '#eb64aa'
+            break
         }
     },
 
@@ -132,12 +133,12 @@ export default {
             beforeDraw: chart => {
                 const { ctx, scale, config } = chart
                 const { xCenter, yCenter, drawingArea: radius } = scale
-                ctx.beginPath();
+                ctx.beginPath()
                 ctx.arc(xCenter, yCenter, radius, 0, Math.PI * 2)
                 ctx.fillStyle = config.options.chartArea.backgroundColor
                 ctx.fill()
             }
-        });
+        })
         const config = {
             type: 'radar',
             data: {
@@ -145,7 +146,7 @@ export default {
                 datasets: [{
                     label: 'Capacitées',
                     lineTension: 0.1,
-                    pointHoverBackgroundColor: "#ffffff",
+                    pointHoverBackgroundColor: '#ffffff',
                     pointHoverRadius: 5,
                     data: [0, 0, 0, 0, 0, 0]
                 }]
@@ -168,17 +169,17 @@ export default {
                     ticks: {
                         beginAtZero: true,
                         fontColor: '#ffffff',
-                        fontFamily: "'Open sans', sans-serif",
+                        fontFamily: '\'Open sans\', sans-serif',
                         fontSize: 10,
                         fontStyle: '300',
                         min: 0,
                         max: 100,
                         stepSize: 25,
-                        showLabelBackdrop: false,
+                        showLabelBackdrop: false
                     },
                     pointLabels: {
                         fontColor: '#ffffff',
-                        fontFamily: "'Open sans', sans-serif",
+                        fontFamily: '\'Open sans\', sans-serif',
                         fontStyle: '300',
                         fontSize: 14
                     }
@@ -188,17 +189,15 @@ export default {
                 },
                 tooltips: {
                     bodyFontSize: 14,
-                    bodyFontFamily: "'Open sans', sans-serif",
+                    bodyFontFamily: '\'Open sans\', sans-serif',
                     cornerRadius: 2,
                     displayColors: false,
                     callbacks: {
-                        title: function (tooltipItems, data) {
-                            return '';
+                        title: function () {
+                            return ''
                         },
                         label: function (tooltipItem, data) {
-                            var datasetLabel = '';
-                            var label = data.labels[tooltipItem.index];
-                            return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]
                         }
                     }
                 },
@@ -209,16 +208,16 @@ export default {
                     animationDuration: 0
                 }
             }
-        };
-        state.charts.capacitiesChart = new Chart(element.getContext('2d'), config);
+        }
+        state.charts.capacitiesChart = new Chart(element.getContext('2d'), config)
     },
 
     /**
      * @desc Update the capacities chart. Use Chart.js
      */
     updateCapacitiesChart: () => (state) => {
-        const dataCapacitiesChart = state.charts.capacitiesChart.data.datasets[0];
-        const heroPowerstats = state.hero.powerstats;
+        const dataCapacitiesChart = state.charts.capacitiesChart.data.datasets[0]
+        const heroPowerstats = state.hero.powerstats
         const heroColor = state.color
         const color = Chart.helpers.color
         dataCapacitiesChart.data = [
@@ -230,10 +229,10 @@ export default {
             heroPowerstats.combat
         ]
         dataCapacitiesChart.backgroundColor = color(heroColor).alpha(0.5).rgbString(),
-            dataCapacitiesChart.borderColor = heroColor,
-            dataCapacitiesChart.pointBackgroundColor = heroColor,
-            dataCapacitiesChart.pointBackgroundColor = heroColor,
-            state.charts.capacitiesChart.update();
+        dataCapacitiesChart.borderColor = heroColor,
+        dataCapacitiesChart.pointBackgroundColor = heroColor,
+        dataCapacitiesChart.pointBackgroundColor = heroColor,
+        state.charts.capacitiesChart.update()
     },
 
     /**
@@ -253,12 +252,12 @@ export default {
      */
     modifyColor: (colorToChange) => {
         switch (colorToChange) {
-            case 'blue':
-                return '#5b98fc'
-            case 'blond':
-                return '#ffffcc'
-            default:
-                return colorToChange
+        case 'blue':
+            return '#5b98fc'
+        case 'blond':
+            return '#ffffcc'
+        default:
+            return colorToChange
         }
     }
 

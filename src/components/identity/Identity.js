@@ -6,10 +6,10 @@ import Carac from './IdentityCarac'
 import Biography from './IdentityBio'
 
 export default (props) =>
-    <section class='comp-identity col-md-4 col-sm-12 col-xd-12'>
-        <div class='comp-header'>Identité</div>
-        <div class='identity-body'>
-            <div class='identity-main row middle-md'>
+    <section class="comp comp-1 comp-identity col-md-4 col-sm-12 col-xd-12">
+        <div class="comp-header">Identité</div>
+        <div class="comp-body">
+            <div class="identity-main row middle-md">
                 {Avatar({
                     gender: props.hero.appearance.gender,
                     eye: props.hero.appearance.eyeColor,

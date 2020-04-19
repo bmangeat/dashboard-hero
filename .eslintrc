@@ -1,30 +1,38 @@
 {
-  "plugins": ["babel"],
-  "parser": "babel-eslint",
+  "root": true,
+  "extends": "eslint:recommended",
+  "env": {
+    "browser": true,
+    "node": true
+  },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
       "modules": true
     }
   },
+  "plugins": ["babel"],
+  "globals": {
+    "hyperapp": true
+  },
+  "parser": "babel-eslint",
   "rules": {
-    "quotes": [1, "single"],
-    "jsx-quotes": ["error", "prefer-double"],
-    "semi": [1, "never"],
-    "camelcase": [1, { "properties": "always" }],
+    "arrow-spacing": 1,
     "block-spacing": [1, "always"],
     "brace-style": 1,
+    "camelcase": [1, { "properties": "always" }],
     "comma-dangle": [1, "never"],
     "comma-spacing": [1, { "before": false, "after": true }],
     "comma-style": [1, "last"],
     "computed-property-spacing": [1, "never"],
     "func-call-spacing": [1, "never"],
-    "key-spacing": [1, { "beforeColon": false }],
     "indent": 1,
+    "jsx-quotes": ["error", "prefer-double"],
+    "key-spacing": [1, { "beforeColon": false }],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
     "no-trailing-spaces": 1,
-    "arrow-spacing": 1,
-    "no-unused-vars": 1,
-    "no-console": ["error", { "allow": ["warn", "error"] }]
-  },
-  "extends": "eslint:recommended"
+    "no-unused-vars": [1, { "varsIgnorePattern": "^h$" }],
+    "quotes": [1, "single"],
+    "semi": [1, "never"]
+  }
 }

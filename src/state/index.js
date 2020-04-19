@@ -1,6 +1,6 @@
 export default {
-    color : '',
-    charts : {
+    color: '',
+    charts: {
         capacitiesChart: null
     },
     weather: '', // "main" : Mist, Clear, Drizzle, Clouds, Rain, Fog, Dust, Haze, Snow, Thunderstorm

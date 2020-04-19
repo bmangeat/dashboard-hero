@@ -1,6 +1,4 @@
 // @variables
-$bg-comp-header: #242c38;
-$bg-compo-body: #191f28;
 
 $color-batman: #ffb700;
 $color-superman: #5b98fc;
@@ -9,8 +7,10 @@ $color-jack: #ea4335;
 $color-joker: #34a853;
 $color-harley: #eb64aa;
 
+// @layout
+
 .Batman {
-  .comp-identity .identity-body .identity-section .identity-subinformation {
+  .comp-identity .comp-body .identity-section .identity-subinformation {
     border-bottom-color: $color-batman;
   }
   #page-loading {
@@ -22,7 +22,7 @@ $color-harley: #eb64aa;
 }
 
 .Superman {
-  .comp-identity .identity-body .identity-section .identity-subinformation {
+  .comp-identity .comp-body .identity-section .identity-subinformation {
     border-bottom-color: $color-superman;
   }
   #page-loading {
@@ -34,7 +34,7 @@ $color-harley: #eb64aa;
 }
 
 .Catwoman {
-  .comp-identity .identity-body .identity-section .identity-subinformation {
+  .comp-identity .comp-body .identity-section .identity-subinformation {
     border-bottom-color: $color-catwoman;
   }
   #page-loading {
@@ -46,7 +46,7 @@ $color-harley: #eb64aa;
 }
 
 .Jack-Jack {
-  .comp-identity .identity-body .identity-section .identity-subinformation {
+  .comp-identity .comp-body .identity-section .identity-subinformation {
     border-bottom-color: $color-jack;
   }
   #page-loading {
@@ -58,7 +58,7 @@ $color-harley: #eb64aa;
 }
 
 .Joker {
-  .comp-identity .identity-body .identity-section .identity-subinformation {
+  .comp-identity .comp-body .identity-section .identity-subinformation {
     border-bottom-color: $color-joker;
   }
   #page-loading {
@@ -70,7 +70,7 @@ $color-harley: #eb64aa;
 }
 
 .Harley {
-  .comp-identity .identity-body .identity-section .identity-subinformation {
+  .comp-identity .comp-body .identity-section .identity-subinformation {
     border-bottom-color: $color-harley;
   }
   #page-loading {
@@ -82,21 +82,9 @@ $color-harley: #eb64aa;
 }
 
 .comp-identity {
-  border-radius: 0.5rem 0.5rem 0 0;
 
-  .comp-header {
-    background-color: $bg-comp-header;
-    padding: 0.25rem 1rem;
-    border-radius: 0.5rem 0.5rem 0 0;
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 140.62%;
-  }
-
-  .identity-body {
-    background-color: $bg-compo-body;
+  .comp-body {
     padding: 0 1rem 1rem 1rem;
-    border-radius: 0 0 10px 10px;
 
     .identity-main {
       padding: 1rem 0;
@@ -105,8 +93,8 @@ $color-harley: #eb64aa;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 12.5rem;
-        height: 12.5rem;
+        width: 10rem;
+        height: 10rem;
 
         .st0 {
           fill: #f49e77;
@@ -142,7 +130,7 @@ $color-harley: #eb64aa;
           font-weight: bold;
           font-size: 1.4rem;
           line-height: 140.62%;
-          margin: 1rem 0;
+          margin: 0 0 1rem 0;
         }
 
         .identity-sub-essential {
@@ -157,33 +145,36 @@ $color-harley: #eb64aa;
     }
 
     .identity-section {
+
       h3 {
         font-weight: 600;
-        font-size: 1rem;
+        font-size: .8rem;
         line-height: 140.62%;
         text-transform: uppercase;
-        margin: 0.5rem 0;
+        margin: 0.3rem 0;
       }
 
       .identity-subinformation {
         border-bottom: 1px solid;
         padding: 0.5rem 0;
-        margin: 0 0.5rem;
+        margin: 0 0.4rem;
 
         .identity-section-key {
           font-size: 0.7rem;
           font-weight: 600;
           line-height: 1.1rem;
-          padding: 0.5rem 0;
         }
-
+        
         .identity-section-value {
           font-size: 0.7rem;
           font-weight: 300;
           line-height: 1.1rem;
-          padding: 0.5rem 0;
         }
       }
+    }
+
+    .identity-section:nth-child(3){
+      margin-top: 1.5rem;
     }
   }
 }

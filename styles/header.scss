@@ -1,33 +1,11 @@
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  .header-profile {
-    display: none;
-  }
-  #list-hero {
-    text-align-last: center;
-  }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-}
-
 header {
   padding: 0.7rem 1rem;
+  background: #191f28;
+  border-bottom: 1px solid #242c38;
+  height: 3.5rem;
 
   .logo-league {
+
     .bg-league {
       fill: #181f29;
     }
@@ -44,11 +22,8 @@ header {
     }
   }
 
-  background: #191f28;
-  border: 1px solid #242c38;
-  height: 4rem;
-
   .header-profile {
+
     p {
       color: #f0f0f0;
       text-align: right;
@@ -86,4 +61,25 @@ header {
       border-radius: 0;
     }
   }
+}
+
+@media only screen and (max-width: 48em) {
+  .header-profile {
+    display: none;
+  }
+  #list-hero {
+    text-align-last: center;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }

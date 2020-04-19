@@ -1,7 +1,60 @@
 // @variables
+
 $font-stack: "Open Sans", sans-serif;
 $font-color: #f0f0f0;
 $bg-board: #0e131a;
+$bg-comp-header: #242c38;
+$bg-comp-body: #191f28;
+
+// @layout
+
+body {
+  height: 100%;
+  margin: 0;
+  background-color: $bg-board;
+  color: $font-color;
+  font: 1rem $font-stack;
+}
+
+#heroWindow {
+  height: 100vh;
+}
+
+#board {
+  flex-direction: column;
+  height: calc(100% - 3.5rem);
+  padding: .5rem;
+
+  .comp {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    flex-direction: column;
+    display: flex;
+  
+    .comp-header {
+      background-color: $bg-comp-header;
+      padding: 0.25rem 1rem;
+      border-radius: 0.5rem 0.5rem 0 0;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 140.62%;
+    }
+    .comp-body {
+      background-color: $bg-comp-body;
+      border-radius: 0 0 10px 10px;
+      flex: 1 1 auto;
+    }
+  }
+
+  .comp-1 {
+    min-height: 100%;
+  }
+
+  .comp-2 {
+    min-height: 50%;
+  }
+
+}
 
 .full-width {
   width: 100%;
@@ -14,30 +67,35 @@ $bg-board: #0e131a;
   align-items: center;
 }
 
-/* Extra small devices (phones, 600px and down) */
+// @resize
+
+@media only screen and (max-width: 64em) {
+  #board {
+    flex-direction: row;
+    height: auto;
+  }
+  .comp {
+    width: 100%;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {
   html {
     font-size: 18px;
   }
 }
-
-$background-batman: #212121;
-$color-batman: #ffbb00;
-
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   html {
     font-size: 18px;
   }
 }
-
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   html {
     font-size: 20px;
   }
 }
-
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   html {
@@ -45,11 +103,3 @@ $color-batman: #ffbb00;
   }
 }
 
-// @layout
-body {
-  height: 100%;
-  margin: 0;
-  font: 1rem $font-stack;
-  color: $font-color;
-  background-color: $bg-board;
-}

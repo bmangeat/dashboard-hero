@@ -1,22 +1,10 @@
-$bg-comp-header: #242c38;
-$bg-compo-body: #191f28;
+
+// @layout
 
 .comp-capacities {
-  .comp-header {
-    background-color: $bg-comp-header;
-    padding: 0.25rem 1rem;
-    border-radius: 0.5rem 0.5rem 0 0;
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 140.62%;
-  }
 
-  .capacities-body {
-    background-color: $bg-compo-body;
-    padding: 2.5rem;
-    border-radius: 0 0 10px 10px;
-    height: 50%;
-    min-height: 500px;
+  .comp-body {
+    padding: 2rem;
     box-sizing: border-box;
   }
 }
