@@ -265,10 +265,16 @@ export default {
                 return '#5b98fc'
             case 'blond':
                 return '#ffffcc'
+            case 'green':
+                return '#34a853'
+            case 'black':
+                return '#221e1f'
             default:
                 return colorToChange
         }
     }
+
+
 
 }
 
