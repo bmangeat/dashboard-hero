@@ -63,7 +63,7 @@ export default {
      * @param item String from API corresponding to the main weather
      */
     setWeather: (item) => (state) => {
-        return { ...state, weather: item }
+        return {...state, weather: item}
     },
 
     /**
@@ -97,30 +97,30 @@ export default {
         const sel = document.getElementById('list-hero')
         const opt = sel.options[sel.selectedIndex]
         switch (opt.text) {
-        case 'Batman':
-            actions.getData(70)
-            state.color = '#ffb700'
-            break
-        case 'Superman':
-            actions.getData(644)
-            state.color = '#5b98ff'
-            break
-        case 'Joker':
-            actions.getData(370)
-            state.color = '#34a853'
-            break
-        case 'Catwoman':
-            actions.getData(165)
-            state.color = '#bb54ff'
-            break
-        case 'Jack-Jack':
-            actions.getData(351)
-            state.color = '#ea4335'
-            break
-        case 'Harley Quinn':
-            actions.getData(309)
-            state.color = '#eb64aa'
-            break
+            case 'Batman':
+                actions.getData(70)
+                state.color = '#ffb700'
+                break
+            case 'Superman':
+                actions.getData(644)
+                state.color = '#5b98ff'
+                break
+            case 'Joker':
+                actions.getData(370)
+                state.color = '#34a853'
+                break
+            case 'Catwoman':
+                actions.getData(165)
+                state.color = '#bb54ff'
+                break
+            case 'Jack-Jack':
+                actions.getData(351)
+                state.color = '#ea4335'
+                break
+            case 'Harley Quinn':
+                actions.getData(309)
+                state.color = '#eb64aa'
+                break
         }
     },
 
@@ -131,8 +131,8 @@ export default {
     createCapacitiesChart: (element) => (state) => {
         Chart.pluginService.register({
             beforeDraw: chart => {
-                const { ctx, scale, config } = chart
-                const { xCenter, yCenter, drawingArea: radius } = scale
+                const {ctx, scale, config} = chart
+                const {xCenter, yCenter, drawingArea: radius} = scale
                 ctx.beginPath()
                 ctx.arc(xCenter, yCenter, radius, 0, Math.PI * 2)
                 ctx.fillStyle = config.options.chartArea.backgroundColor
@@ -230,10 +230,10 @@ export default {
             heroPowerstats.combat
         ]
         dataCapacitiesChart.backgroundColor = color(heroColor).alpha(0.5).rgbString(),
-        dataCapacitiesChart.borderColor = heroColor,
-        dataCapacitiesChart.pointBackgroundColor = heroColor,
-        dataCapacitiesChart.pointBackgroundColor = heroColor,
-        state.charts.capacitiesChart.update()
+            dataCapacitiesChart.borderColor = heroColor,
+            dataCapacitiesChart.pointBackgroundColor = heroColor,
+            dataCapacitiesChart.pointBackgroundColor = heroColor,
+            state.charts.capacitiesChart.update()
     },
 
     /**
@@ -242,9 +242,15 @@ export default {
     addLoader: () => {
         document.body.classList.remove('loaded')
         document.body.classList.add('fix-body')
+        const loader = document.getElementById('page-loading');
+        loader.style.display = 'block'
+        window.scroll(0, 0)
         setTimeout(() => {
             document.body.classList.add('loaded')
-            setTimeout(() => document.body.classList.remove('fix-body'), 1000)
+            setTimeout(() => {
+                document.body.classList.remove('fix-body')
+                loader.style.display = 'none'
+            }, 1000)
         }, 1500)
     },
 
@@ -255,12 +261,12 @@ export default {
      */
     modifyColor: (colorToChange) => {
         switch (colorToChange) {
-        case 'blue':
-            return '#5b98fc'
-        case 'blond':
-            return '#ffffcc'
-        default:
-            return colorToChange
+            case 'blue':
+                return '#5b98fc'
+            case 'blond':
+                return '#ffffcc'
+            default:
+                return colorToChange
         }
     }
 
