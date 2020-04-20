@@ -237,13 +237,15 @@ export default {
     },
 
     /**
-     * @desc Display loader when hero is changing (put class on body)
+     * @desc Display loader when hero is changing (put class on body) and freeze body until the end of animation
      */
     addLoader: () => {
         document.body.classList.remove('loaded')
         document.body.classList.add('fix-body')
-        setTimeout(() => document.body.classList.add('loaded'), 1500)
-        setTimeout(() => document.body.classList.remove('fix-body'), 2500)
+        setTimeout(() => {
+            document.body.classList.add('loaded')
+            setTimeout(() => document.body.classList.remove('fix-body'), 1000)
+        }, 1500)
     },
 
     /**
