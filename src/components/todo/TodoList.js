@@ -11,7 +11,8 @@ export default (props) =>
                         done: item.done,
                         text: item.text,
                         createdAt: item.createdAt,
-                        onToggleDone: props.onToggleDone(item.id)
+                        onToggleDone: props.onToggleDone(item.id),
+                        onDelete: props.onDelete(item.id)
                     })
                 ]))
         )

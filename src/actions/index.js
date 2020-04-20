@@ -173,9 +173,9 @@ export default {
     updateTodoInput: (event) => (state) => ({ ...state, addItemInput: event.target.value}),
 
     /**
-     * @desc Add item in input to todo list + post in API
+     * @desc Add item in input to todo list + post in API, setTimeout to fetch uptaded API
      */
-    addTodoItem: () => (state) => {
+    addTodoItem: () => (state, actions) => {
         const input = state.addItemInput
         if (input.length === 0) {
             return state
@@ -194,12 +194,31 @@ export default {
         })
         .catch((err) => console.error('err', err.response))
         
-        actions.fetchTodos()
+        setTimeout(() => actions.fetchTodos(), 100)
 
         return {
             ...state,
             addItemInput: ""
         }
+    },
+
+    /**
+     * @desc Delete item in API + setTimeout to fetch updated API
+     */
+    deleteTodoItem: (id) => (state, actions) => {
+        const itemAtId = state.todoItems.find(item => item.id === id)
+        if (itemAtId === undefined) {
+            console.error(`Item id ${id} could not be found, this should not happen`)
+            return
+        }
+
+        axios.delete('https://agile-escarpment-40479.herokuapp.com/todos/'+id)
+        .then((response) => {
+            console.log(response.status)
+        })
+        .catch((err) => console.error('err', err.response))
+        
+        setTimeout(() => actions.fetchTodos(), 300)
     }
 
 }

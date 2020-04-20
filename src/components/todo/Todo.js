@@ -7,7 +7,8 @@ export default (props) =>
         h('div', { class: 'comp-header'}, ["Liste de tâches"]),
         TodoList({
             items: props.items,
-            onToggleDone: props.onToggleDone
+            onToggleDone: props.onToggleDone,
+            onDelete: props.onDelete
         }),
         TodoItemInput({
             text: props.text,

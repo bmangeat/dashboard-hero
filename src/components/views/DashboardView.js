@@ -14,6 +14,7 @@ export default (state, actions) => h('div',
         Todo({
             items: state.todoItems,
             onToggleDone: (id) => () => actions.toggleDone(id),
+            onDelete: (id) => () => actions.deleteTodoItem(id),
             text: state.addItemInput,
             onInputChange: actions.updateTodoInput,
             onAdd: actions.addTodoItem
