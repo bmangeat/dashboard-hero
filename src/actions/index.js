@@ -85,7 +85,7 @@ export default {
      * @param idHero Corresponding to one hero from API : get all datas
      */
     getData: (idHero) => (state, actions) => {
-        actions.fetchWeather
+        actions.fetchWeather()
         actions.fetchHero(idHero)
     },
 

@@ -1,3 +1,4 @@
+import Weather from '../weather/Weather'
 import { h } from 'hyperapp'
 
 import Header from '../header/Header'
@@ -16,8 +17,9 @@ export default (state, actions) =>
             {Identity({
                 hero: state.hero
             })}
-            {Capacities({
-                createCapacitiesChart: (element) => actions.createCapacitiesChart(element)
+            {Weather({
+                weather: state.weather,
+                hero: state.hero
             })}
             {Capacities({
                 createCapacitiesChart: (element) => actions.createCapacitiesChart(element)

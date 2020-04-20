@@ -1,0 +1,97 @@
+// @variables
+$bg-comp-header: #242C38;
+$bg-comp-body: #191F28;
+
+// @layout
+.comp-weather {
+    color: white;
+    width: 30%;
+
+    .comp-header {
+        background-color: $bg-comp-header;
+        padding: 0.25rem 1rem;
+        border-radius: 0.5rem 0.5rem 0 0;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 140.62%;
+    }
+
+    .comp-body {
+        background-color: $bg-comp-body;
+        padding: 1rem 1rem;
+        border-radius: 0 0 0.5rem 0.5rem;
+
+        .info-weather {
+            position: relative;
+            
+            .message {
+                font-weight: 300;
+                font-size: 0.9rem;
+                text-align: center;
+                position: absolute;
+                width: 100%;
+
+                p {
+                    margin: auto;
+                    padding : 0.5rem;
+                }
+            }
+
+            .illustration {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .st0 {fill:url(#SVGID_1_);}
+                .st1{fill:url(#Plan3_1_);}
+                .st2{fill:url(#Plan2_1_);}
+                .st3{fill:url(#Plan1_1_);}
+
+                .st4{fill:url(#SVGID_2_);}
+                .st5{fill:url(#Plan3_2_);}
+                .st6{fill:url(#Plan2_2_);}
+                .st7{fill:url(#Plan1_2_);}
+
+                .st8{fill:url(#SVGID_3_);}
+                .st9{fill:url(#Plan3_3_);}
+                .st10{fill:url(#Plan2_3_);}
+                .st11{fill:url(#Plan1_3_);}
+
+                .st12{fill:url(#SVGID_4_);}
+                .st13{fill:url(#Plan3_4_);}
+                .st14{fill:url(#Plan2_4_);}
+                .st15{fill:url(#Plan1_4_);}
+
+                .st16{fill:url(#SVGID_5_);}
+                .st17{fill:url(#Plan3_5_);}
+                .st18{fill:url(#Plan2_5_);}
+                .st19{fill:url(#Plan1_5_);}
+            }
+
+            .box-logo {
+                display: flex;
+                justify-content: center;
+                padding-top: 1rem;
+
+                .st20{fill:none;stroke:#F0F0F0;stroke-width:3;}
+                .st21{fill:#F0F0F0;}
+                .st22{fill:none;stroke:#F8CCE1;stroke-width:3;}
+                .st23{fill:#F8CCE1;}
+                .st24{fill:none;stroke:#00A2E4;stroke-width:3;}
+                .st25{fill:#00A2E4;}
+                .st26{fill:none;stroke:#5BB030;stroke-width:3;}
+                .st27{fill:#5BB030;}
+                .st28{fill:none;stroke:#FCBB0A;stroke-width:3;}
+                .st29{fill:#FCBB0A;}
+                .st30{fill:none;stroke:#E7302A;stroke-width:3;}
+                .st31{fill:#E7302A;}
+
+                .logo {
+                    margin-left: 4px;
+                    margin-right: 4px;
+                }
+
+            }
+        }
+    }
+}
