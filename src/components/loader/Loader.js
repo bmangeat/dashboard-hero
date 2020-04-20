@@ -1,7 +1,7 @@
 import { h } from 'hyperapp'
 
-export default () =>
-    <div id="page-loading">
+export default (props) =>
+    <div id="page-loading" style={'background-color:'+props.color+';'}>
         <div class="body-loader">
             <span>
                 <span></span>
