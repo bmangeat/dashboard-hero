@@ -142,9 +142,9 @@ export default {
         const config = {
             type: 'radar',
             data: {
-                labels: ['Intelligence', 'Force', 'Vitesse', 'Résistance', 'Puissance', 'Combat'],
+                labels: ['Intelligence', 'Strength', 'Speed', 'Durability', 'Power', 'Combat'],
                 datasets: [{
-                    label: 'Capacitées',
+                    label: 'Powerstats',
                     lineTension: 0.1,
                     pointHoverBackgroundColor: '#ffffff',
                     pointHoverRadius: 5,
