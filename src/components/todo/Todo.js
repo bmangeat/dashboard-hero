@@ -6,7 +6,7 @@ import TodoProgressBarAnim from './TodoProgressBarAnim'
 
 export default (props) => 
     h('div', { class: 'comp-todo' }, [
-        h('div', { class: 'comp-header'}, ["Liste de tâches"]),
+        h('div', { class: 'comp-header'}, ["Liste des tâches"]),
         h('div', { class: 'comp-body' }, [
             h('div', { class: 'comp-todo-top'}, [
                 TodoList({

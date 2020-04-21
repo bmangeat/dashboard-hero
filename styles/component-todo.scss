@@ -1,0 +1,124 @@
+// @variables
+$bg-comp-header: #242c38;
+$bg-comp-body: #191f28;
+$bg-color: #0E131A;
+
+// @layout
+.comp-todo {
+    color: white;
+    width: 30%;
+
+    .comp-header {
+        background-color: $bg-comp-header;
+        padding: 0.25rem 1rem;
+        border-radius: 0.5rem 0.5rem 0 0;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 140.62%;
+    }
+
+    .comp-body {
+        background-color: $bg-comp-body;
+        padding: 1rem 1rem;
+        border-radius: 0 0 0.5rem 0.5rem;
+
+        .todo-list {
+            position: relative;
+            width: 90%;
+            margin-right: 20px;
+            
+            .todo-item {
+                font-weight: 300;
+                font-size: 0.9rem;
+                text-align: left;
+                // position: absolute;
+                width: 100%;
+                height: 48px;
+
+                p {
+                    margin-left: 0.5rem;
+                    margin-right: auto;
+                    // padding : 0.5rem;
+                }
+
+                input {
+                    background-image: url(img/close.svg);
+                    background-repeat: no-repeat;
+                    background-size: 10px;
+                    background-position: center;
+                    background-color: transparent;
+                    border: none;
+                }
+            }
+        }
+
+        .comp-todo-top {
+            display: flex;
+        }
+
+        .todo-item {
+            position: relative;
+            display: flex;
+        }
+
+        .todo-item-input {
+            position: relative;
+
+            input[type=text] {
+                width: 75%;
+                height: 39px;
+                margin-right: 7px;
+                padding: 0 0 0 10px;
+                border: 1px solid $bg-comp-header;
+                background-color: $bg-color;
+                color: white;
+                box-sizing: border-box;
+            }
+            ::placeholder {
+                color: $bg-comp-header;
+                opacity: 1;
+              }
+            input[type=button] {
+                width: 20%;
+                height: 39px;
+                border-radius: 5px;
+                background-color: $bg-comp-header;
+                color: inherit;
+                border: none;
+            }
+        }
+
+        .slider {
+            position: relative;
+            width: 10%;
+        }
+    }
+
+}
+svg {
+ 
+    width: 100%;
+    height: 100%;
+    
+   }
+   
+   .label{
+    fill:#FFFCF9;
+    font-size:1.8em;
+    font-family: "din-condensed-web", sans-serif;
+    /* font-family: "filson-soft", sans-serif; */
+    text-anchor:middle;
+    letter-spacing:1.2px;
+   }
+   
+   
+    .tubeLabel{
+    fill:#FCEFD6;
+    font-size:1.4em;
+    font-family: "din-condensed-web", sans-serif;
+    /* font-family: "filson-soft", sans-serif; */
+    text-anchor:middle;
+   }
+   .dragger{
+    -webkit-tap-highlight-color:transparent;
+   }

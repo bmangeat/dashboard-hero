@@ -7,6 +7,6 @@ export default (props) =>
         h('input', {
             type: 'button',
             onclick: props.onDelete,
-            value: 'Delete'
+            // value: 'Delete'
         })
     ])
