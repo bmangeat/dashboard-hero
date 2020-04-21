@@ -1,7 +1,7 @@
 import { h } from 'hyperapp'
 
 export default (props) =>
-    h('div', { class: 'todo-itemp-input__root' }, [
+    h('div', { class: 'todo-item-input' }, [
         h('input', {
             type: 'text',
             placeholder: 'Add an item',
@@ -11,6 +11,6 @@ export default (props) =>
         h('input', {
             type: 'button',
             onclick:props.onAdd,
-            value: 'Add'
+            value: 'Valider'
         })
     ])

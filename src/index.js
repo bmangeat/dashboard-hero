@@ -3,6 +3,7 @@ import { withLogger } from "@hyperapp/logger"
 
 import '../styles/*.css'
 import '../styles/*.scss'
+import '../styles/component-todo.scss'
 
 import actions from './actions'
 import state from './state'

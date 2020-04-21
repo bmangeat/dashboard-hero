@@ -17,8 +17,11 @@ export default (state, actions) => h('div',
             onDelete: (id) => () => actions.deleteTodoItem(id),
             text: state.addItemInput,
             onInputChange: actions.updateTodoInput,
-            onAdd: actions.addTodoItem
-        })
+            onAdd: actions.addTodoItem,
+            color: state.color,
+            ratioDone: state.todoItems.filter(item => item.done === true).length,
+            totalItems: state.todoItems.length
+        }),
         
+console.log("TEST : "+ state.todoItems.filter(item => item.done === true).length/state.todoItems.length)
     ])
-

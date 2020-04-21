@@ -1,4 +1,5 @@
 export default {
+    color: "#FFB700",
     weather: '',                                // "main" : Mist, Clear, Drizzle, Clouds, Rain, Fog, Dust, Haze, Snow, Thunderstorm
     hero: {
         name: '',
