@@ -2,7 +2,7 @@ import {h} from 'hyperapp'
 
 import Message from './WeatherMessage'
 import Gradient from './WeatherColor'
-import Logo from './WeatherLogo'
+import Logo from './WeatherLogoColor'
 
 export default (props) =>
 
@@ -56,7 +56,9 @@ export default (props) =>
                         </g>
                     </svg>
                 </div>
-                {Logo({weather: props.weather})}
+                <div class="logo">
+                    {Logo({weather: props.weather})}
+                </div>
             </div>
         </div>
     </section>
