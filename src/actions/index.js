@@ -1,7 +1,6 @@
 import axios from 'axios'
+import { gsap } from 'gsap'
 import { Linear } from 'gsap'
-import { Draggable } from 'gsap/Draggable'
-import { Expo } from 'gsap'
 import { CSSPlugin } from 'gsap/CSSPlugin'
 
 const API_HERO = 'https://superheroapi.com/api.php/10213784867090388/'                                                      // url superheroapi with key : 10213784867090388
