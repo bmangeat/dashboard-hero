@@ -11,9 +11,9 @@ export default (props) =>
                     text: item.text,
                     createdAt: item.createdAt,
                     onToggleDone: props.onToggleDone(item.id),
-                    onDelete: props.onDelete(item.id)
+                    onDelete: props.onDelete(item.id),
                 }),
-                h('hr', {})
+                h('hr', {}),
             ])
         )
     ])

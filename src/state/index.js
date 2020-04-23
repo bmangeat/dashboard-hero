@@ -41,5 +41,6 @@ export default {
         }
     },
     todoItems: [],
-    addItemInput: ''
+    addItemInput: '',
+    ratioDone: ''
 }

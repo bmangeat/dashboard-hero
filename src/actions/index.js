@@ -204,6 +204,7 @@ export default {
 
     /**
      * @desc Delete item in API + setTimeout to fetch updated API
+     * @param id id of the todo item
      */
     deleteTodoItem: (id) => (state, actions) => {
         const itemAtId = state.todoItems.find(item => item.id === id)
@@ -219,6 +220,16 @@ export default {
         .catch((err) => console.error('err', err.response))
         
         setTimeout(() => actions.fetchTodos(), 300)
+    },
+
+    /**
+     * @desc Set the ratio task done
+     */
+    setRatioDone: () => (state) => {
+        return {
+            ...state,
+            ratioDone: state.todoItems.filter(item => item.done === true).length/state.todoItems.length
+        }
     }
 
 }
