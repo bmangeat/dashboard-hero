@@ -23,8 +23,7 @@
     "@hyperapp/logger": "^0.5.0",
     "axios": "^0.19.2",
     "gsap": "^3.2.6",
-    "hyperapp": "^1.2.10",
-    "parcels": "^0.13.5"
+    "hyperapp": "^1.2.10"
   },
   "devDependencies": {
     "parcel": "^1.12.4",
