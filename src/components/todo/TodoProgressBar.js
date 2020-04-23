@@ -26,7 +26,14 @@ export default (props) =>
 
         h('g', { class:"whole", transform:"translate(0, -40)" }, [
             h('use', { href:"#tube", class:"tubeBg", fill:"#C8D9D3", opacity:"0.61" }),
-                        
+            
+            h('g', { class:"dragger", transform:"translate(-6, 0)" }, [
+                h('circle', { cx:"294", cy:"540", r:"36", fill:"#3A3335"}),
+                h('path', { class:"dragTip", d:"M315.5,556.76,299.24,540.5l16.26-16.26,36.26,16.26Z", fill:"#3A3335" }),
+                h('text', { class:"label", x:"294", y:"551" }, props.ratioDone/props.totalItems*100),
+            ]),
+            
+            
             h('g', { mask:"url(#gradMask)" }, [
                 h('use', { href:"#tube", fill:"url(#liquidGrad)" })
             ]),

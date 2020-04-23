@@ -134,16 +134,16 @@ export default {
                     id: todo.id,
                     createdAt: todo.createdAt
                 })))
+                actions.setRatioDone()
             })
             .catch((err) => console.error('err', err))
-        return state
     },
 
     /**
      * @desc Switch done value in todo item
      * @param id id of the todo item
      */
-    toggleDone: (id) => (state) => {
+    toggleDone: (id) => (state, actions) => {
         const itemAtId = state.todoItems.find(item => item.id === id)
         if (itemAtId === undefined) {
             console.error(`Item id ${id} could not be found, this should not happen`)
@@ -164,13 +164,9 @@ export default {
             console.log(response.status)
         })
         .catch((err) => console.error('err', err.response))
-        
-        return {
-            ...state,
-            todoItems: state.todoItems
-                .filter(item => item.id !== id)
-                .concat({ ...itemAtId, done: !itemAtId.done })
-        }
+
+        actions.setTodos(state.todoItems.filter(item => item.id !== id).concat({ ...itemAtId, done: !itemAtId.done }))
+        actions.setRatioDone()
     },
     /**
      * @desc Update addItemInput value with input value

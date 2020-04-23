@@ -17,6 +17,7 @@ export default (props) =>
                 h('div', { class: 'todo-progressbar'}, [
                     TodoProgressBar({
                         color: props.color,
+                        ratioDone: props.ratioDone,
                         animation: props.animation
                     })
                 ]),
