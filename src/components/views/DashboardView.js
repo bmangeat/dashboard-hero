@@ -5,6 +5,7 @@ import Header from '../header/Header'
 import Identity from '../identity/Identity'
 import Capacities from '../capacities/Capacities'
 import Loader from '../loader/Loader'
+import Footer from "../footer/Footer";
 
 export default (state, actions) =>
     <div id="heroWindow" class={state.hero.name.replace(/ .*/, '')} oncreate={actions.selectHero}>
@@ -33,4 +34,5 @@ export default (state, actions) =>
         {Loader({
             color: state.color
         })}
+        <Footer/>
     </div>
