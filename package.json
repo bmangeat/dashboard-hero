@@ -23,12 +23,8 @@
     "@hyperapp/logger": "^0.5.0",
     "axios": "^0.19.2",
     "gsap": "^3.2.6",
-<<<<<<< Updated upstream
-    "hyperapp": "^1.2.10"
-=======
     "hyperapp": "^1.2.10",
     "parcels": "^0.13.5"
->>>>>>> Stashed changes
   },
   "devDependencies": {
     "parcel": "^1.12.4",

@@ -82,6 +82,7 @@ export default {
         actions.fetchWeather()
         actions.fetchHero(idHero)
         actions.fetchTodos()
+        // actions.progressBarAnimation()
     },
 
     // TODO : We have to define heros
@@ -245,23 +246,11 @@ export default {
         return document.querySelectorAll(s);
         },
         liquid = selectAll('.liquid'),
-        tubeShine = select('.tubeShine'),
-        label = select('.label'),
-        follower = select('.follower'),
-        dragger = select('.dragger'),
-        dragTip = select('.dragTip'),
-        minDragY = -380,
-        liquidId = 0,
-        step = Math.abs(minDragY/100),
-        followerVY = 0
+        minDragY = -380
         
 
     gsap.set('svg', {
         visibility: 'visible'
-    })
-
-    gsap.set(dragTip, {
-    transformOrigin:'20% 50%'
     })
 
     var tl = new gsap.timeline()
