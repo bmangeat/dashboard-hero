@@ -5,7 +5,7 @@ import TodoItemInput from '../todo/TodoItemInput'
 import Todo from '../todo/Todo'
 
 export default (state, actions) => h('div',
-    {class: state.hero.name.replace(/ .*/, ''), oncreate: () => { actions.selectHero(), actions.fetchTodos() }, },
+    {class: state.hero.name.replace(/ .*/, ''), oncreate: () => { actions.selectHero() }, },
     [
         Header({
             hero: state.hero,
@@ -19,6 +19,7 @@ export default (state, actions) => h('div',
             onInputChange: actions.updateTodoInput,
             onAdd: actions.addTodoItem,
             color: state.color,
+            animation: actions.progressBarAnimation()
         }),
         
     ])

@@ -1,4 +1,8 @@
 import axios from 'axios'
+import { Linear } from 'gsap'
+import { Draggable } from 'gsap/Draggable'
+import { Expo } from 'gsap'
+import { CSSPlugin } from 'gsap/CSSPlugin'
 
 const API_HERO = 'https://superheroapi.com/api.php/10213784867090388/'                                                      // url superheroapi with key : 10213784867090388
 const API_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url openweathermap with key : 57a5dad53fd98ea8812e586a2b18d67e
@@ -78,6 +82,7 @@ export default {
     getData: (idHero) => (state, actions) => {
         actions.fetchWeather()
         actions.fetchHero(idHero)
+        actions.fetchTodos()
     },
 
     // TODO : We have to define heros
@@ -191,11 +196,10 @@ export default {
         })
         .then((response) => {
             console.log(response)
+            actions.fetchTodos()
         })
         .catch((err) => console.error('err', err.response))
         
-        setTimeout(() => actions.fetchTodos(), 100)
-
         return {
             ...state,
             addItemInput: ""
@@ -216,10 +220,10 @@ export default {
         axios.delete('https://agile-escarpment-40479.herokuapp.com/todos/'+id)
         .then((response) => {
             console.log(response.status)
+            actions.fetchTodos()
         })
         .catch((err) => console.error('err', err.response))
         
-        setTimeout(() => actions.fetchTodos(), 300)
     },
 
     /**
@@ -230,6 +234,64 @@ export default {
             ...state,
             ratioDone: state.todoItems.filter(item => item.done === true).length/state.todoItems.length
         }
+    },
+
+    /**
+     * @desc Animate progress bar
+     */
+    progressBarAnimation: () => (state) => {
+        gsap.registerPlugin(CSSPlugin)
+        var xmlns = "http://www.w3.org/2000/svg",
+        xlinkns = "http://www.w3.org/1999/xlink",
+        select = function(s) {
+        return document.querySelector(s);
+        },
+        selectAll = function(s) {
+        return document.querySelectorAll(s);
+        },
+        liquid = selectAll('.liquid'),
+        tubeShine = select('.tubeShine'),
+        label = select('.label'),
+        follower = select('.follower'),
+        dragger = select('.dragger'),
+        dragTip = select('.dragTip'),
+        minDragY = -380,
+        liquidId = 0,
+        step = Math.abs(minDragY/100),
+        followerVY = 0
+        
+
+    gsap.set('svg', {
+        visibility: 'visible'
+    })
+
+    gsap.set(dragTip, {
+    transformOrigin:'20% 50%'
+    })
+
+    var tl = new gsap.timeline()
+    tl.staggerTo(liquid, 0.7, {
+    x:'-=200',
+    ease:Linear.easeNone,
+    repeat:-1
+    },0.4)
+
+    tl.time(100);
+
+    document.addEventListener("touchmove", function(event){
+        event.preventDefault();
+    });
+
+    function onUpdate(){
+
+    gsap.to(liquid, 1.3, {
+        y:state.ratioDone*(-380)*1.12,
+        ease:Elastic.easeOut.config(1,0.4)
+    })
+    
+    }
+
+    onUpdate();
     }
 
 }

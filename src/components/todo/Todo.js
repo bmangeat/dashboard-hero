@@ -2,7 +2,6 @@ import {h} from 'hyperapp'
 import TodoList from '../todo/TodoList'
 import TodoItemInput from '../todo/TodoItemInput'
 import TodoProgressBar from './TodoProgressBar'
-import TodoProgressBarAnim from './TodoProgressBarAnim'
 
 export default (props) => 
     h('div', { class: 'comp-todo' }, [
@@ -15,23 +14,20 @@ export default (props) =>
                 onDelete: props.onDelete
                 }),
                 
-                h('div', { class: 'slider'}, [
+                h('div', { class: 'todo-progressbar'}, [
                     TodoProgressBar({
                         color: props.color,
-                        ratio: props.ratio,
+                        animation: props.animation
                     })
                 ]),
             ]),                
             TodoItemInput({
                 text: props.text,
                 onInputChange: props.onInputChange,
-                onAdd: props.onAdd
+                onAdd: props.onAdd,
             }),
         ])
         
         
         
     ])
-    TodoProgressBarAnim({
-        // ratio: props.ratio
-    })

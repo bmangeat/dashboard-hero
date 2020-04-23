@@ -1,11 +1,7 @@
 import { h } from 'hyperapp'
-import { gsap } from 'gsap'
-import { Linear } from 'gsap'
-import { Draggable } from 'gsap/Draggable'
-import { Expo } from 'gsap'
 
 export default (props) =>
-    h('svg', { xmlns:"http://www.w3.org/2000/svg", xlink:"http://www.w3.org/1999/xlink", viewBox:"350 110 100 400"}, [
+    h('svg', { xmlns:"http://www.w3.org/2000/svg", xlink:"http://www.w3.org/1999/xlink", viewBox:"350 110 100 400", oncreate: () => { props.animation }}, [
         h('defs', {}, [
             h('linearGradient', { id:"liquidGrad", x1:"557", y1:"150", x2:"557", y2:"546", gradientUnits:"userSpaceOnUse"}, [
                 h('stop', { offset:"0.2", 'stop-color':props.color }),
@@ -30,14 +26,7 @@ export default (props) =>
 
         h('g', { class:"whole", transform:"translate(0, -40)" }, [
             h('use', { href:"#tube", class:"tubeBg", fill:"#C8D9D3", opacity:"0.61" }),
-            
-            h('g', { class:"dragger", transform:"translate(-6, 0)" }, [
-                h('circle', { cx:"294", cy:"540", r:"36", fill:"#3A3335"}),
-                h('path', { class:"dragTip", d:"M315.5,556.76,299.24,540.5l16.26-16.26,36.26,16.26Z", fill:"#3A3335" }),
-                h('text', { class:"label", x:"294", y:"551" }, props.ratioDone/props.totalItems*100)
-            ]),
-            
-            
+                        
             h('g', { mask:"url(#gradMask)" }, [
                 h('use', { href:"#tube", fill:"url(#liquidGrad)" })
             ]),
@@ -55,7 +44,6 @@ export default (props) =>
                 h('line', { x1:"358", y1:"503", x2:"370", y2:"503" })
             ]),
             
-            h('circle', { class:"follower", cx:"400", cy:"540", r:"0", fill:"#62B6CB", 'fill-opacity':"1", stroke:"#FCEFD6", 'stroke-width':"0"})
         ])
 
     ])
