@@ -1,11 +1,9 @@
 import axios from 'axios'
-import { gsap } from 'gsap'
-import { Linear } from 'gsap'
-import { CSSPlugin } from 'gsap/CSSPlugin'
+import { TweenMax, TimelineMax, Linear, Elastic } from "gsap/all";
 
 const API_HERO = 'https://superheroapi.com/api.php/10213784867090388/'                                                      // url superheroapi with key : 10213784867090388
 const API_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url openweathermap with key : 57a5dad53fd98ea8812e586a2b18d67e
-                                                                                                                            //                    and idcity (NYC) : 5128581
+//                    and idcity (NYC) : 5128581
 export default {
 
     /**
@@ -17,8 +15,8 @@ export default {
             ...state,
             hero: {
                 name: object.name,
-                powerstats : object.powerstats,
-                biography :{
+                powerstats: object.powerstats,
+                biography: {
                     fullName: object.biography['full-name'],
                     alterEgos: object.biography['alter-egos'],
                     aliases: object.biography.aliases,
@@ -27,19 +25,19 @@ export default {
                     publisher: object.biography.publisher,
                     alignment: object.biography.alignment
                 },
-                appearance : {
+                appearance: {
                     gender: object.appearance.gender,
                     race: object.appearance.race,
                     height: object.appearance.height,
                     eyeColor: object.appearance['eye-color'],
                     hairColor: object.appearance['hair-color']
                 },
-                work : object.work,
-                connections : {
+                work: object.work,
+                connections: {
                     groupAffiliation: object.connections['group-affiliation'],
                     relatives: object.connections.relatives
                 },
-                image : object.image
+                image: object.image
             }
         }
     },
@@ -59,8 +57,8 @@ export default {
      * @desc Allow to set the state with the correct value
      * @param item String from API corresponding to the main weather
      */
-    setWeather: (item) => (state) =>{
-        return {...state, weather: item}
+    setWeather: (item) => (state) => {
+        return { ...state, weather: item }
     },
 
     /**
@@ -135,6 +133,7 @@ export default {
                     createdAt: todo.createdAt
                 })))
                 actions.setRatioDone()
+                actions.updateProgressBar()
             })
             .catch((err) => console.error('err', err))
     },
@@ -150,7 +149,7 @@ export default {
             return
         }
 
-        axios.put('https://agile-escarpment-40479.herokuapp.com/todos/'+id, {
+        axios.put('https://agile-escarpment-40479.herokuapp.com/todos/' + id, {
             completed: !itemAtId.done,
             _id: id,
             title: itemAtId.text,
@@ -160,18 +159,19 @@ export default {
             __v: 0,
             id: id
         })
-        .then((response) => {
-            console.log(response.status)
-        })
-        .catch((err) => console.error('err', err.response))
+            .then((response) => {
+                console.log(response.status)
+            })
+            .catch((err) => console.error('err', err.response))
 
         actions.setTodos(state.todoItems.filter(item => item.id !== id).concat({ ...itemAtId, done: !itemAtId.done }))
         actions.setRatioDone()
+        actions.updateProgressBar()
     },
     /**
      * @desc Update addItemInput value with input value
      */
-    updateTodoInput: (event) => (state) => ({ ...state, addItemInput: event.target.value}),
+    updateTodoInput: (event) => (state) => ({ ...state, addItemInput: event.target.value }),
 
     /**
      * @desc Add item in input to todo list + post in API, setTimeout to fetch uptaded API
@@ -181,7 +181,7 @@ export default {
         if (input.length === 0) {
             return state
         }
-        
+
         const id = Math.random().toString(16).substring(2, 8)
         const date = new Date().toISOString()
 
@@ -190,12 +190,12 @@ export default {
             title: input,
             userId: 70,
         })
-        .then((response) => {
-            console.log(response)
-            actions.fetchTodos()
-        })
-        .catch((err) => console.error('err', err.response))
-        
+            .then((response) => {
+                console.log(response)
+                actions.fetchTodos()
+            })
+            .catch((err) => console.error('err', err.response))
+
         return {
             ...state,
             addItemInput: ""
@@ -213,13 +213,13 @@ export default {
             return
         }
 
-        axios.delete('https://agile-escarpment-40479.herokuapp.com/todos/'+id)
-        .then((response) => {
-            console.log(response.status)
-            actions.fetchTodos()
-        })
-        .catch((err) => console.error('err', err.response))
-        
+        axios.delete('https://agile-escarpment-40479.herokuapp.com/todos/' + id)
+            .then((response) => {
+                console.log(response.status)
+                actions.fetchTodos()
+            })
+            .catch((err) => console.error('err', err.response))
+
     },
 
     /**
@@ -228,55 +228,38 @@ export default {
     setRatioDone: () => (state) => {
         return {
             ...state,
-            ratioDone: state.todoItems.filter(item => item.done === true).length/state.todoItems.length
+            ratioDone: state.todoItems.filter(item => item.done === true).length / state.todoItems.length
         }
     },
 
     /**
      * @desc Animate progress bar
+     * @param element svg progress bar
      */
-    progressBarAnimation: () => (state) => {
-        gsap.registerPlugin(CSSPlugin)
-        const xmlns = "http://www.w3.org/2000/svg",
-        xlinkns = "http://www.w3.org/1999/xlink",
-        select = function(s) {
-        return document.querySelector(s);
-        },
-        selectAll = function(s) {
-        return document.querySelectorAll(s);
-        },
+    progressBarAnimation: (element) => () => {
+        const liquid = element.querySelectorAll('.liquid')
+        TweenMax.set('svg', {
+            visibility: 'visible'
+        })
+        const tl = new TimelineMax()
+        tl.to(liquid, 0.9, {
+            x: '-=200',
+            ease: Linear.easeNone,
+            stagger: {
+                each: 0.4,
+                repeat: -1
+            }
+        })
+    },
 
-        liquid = selectAll('.liquid'),
-        minDragY = -380
-        
-
-    gsap.set('svg', {
-        visibility: 'visible'
-    })
-
-    const tl = new gsap.timeline()
-    tl.staggerTo(liquid, 0.7, {
-    x: 0,
-    ease:Linear.easeNone,
-    repeat:-1
-    },0.9)
-
-    tl.time(100);
-
-    // document.addEventListener("touchmove", function(event){
-    //     event.preventDefault();
-    // });
-
-    function onUpdate(){
-
-    gsap.to(liquid, 1.3, {
-        y:state.ratioDone*(-380)*1.12,
-        // ease: Elastic.easeOut.config(1,0.4)
-    })
-    
-    }
-
-    onUpdate();
+    /**
+     * @desc Update progress bar (with state.ratioDone)
+     */
+    updateProgressBar: () => (state) => {
+        TweenMax.to(liquid, 1.3, {
+            y: state.ratioDone * (-380) * 1.12,
+            ease: Elastic.easeOut.config(1, 0.4)
+        })
     }
 
 }

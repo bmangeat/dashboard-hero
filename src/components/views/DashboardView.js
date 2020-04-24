@@ -17,7 +17,7 @@ export default (state, actions) => h('div',
             onInputChange: actions.updateTodoInput,
             onAdd: actions.addTodoItem,
             color: state.color,
-            animation: actions.progressBarAnimation()
+            animation: (element) => { actions.progressBarAnimation(element) }
         }),
         
     ])

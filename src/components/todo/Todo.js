@@ -19,7 +19,7 @@ export default (props) =>
                     TodoProgressBar({
                         color: props.color,
                         ratioDone: props.ratioDone,
-                        // animation: props.animation
+                        animation: props.animation
                     })
                 ]),
             ]),                
