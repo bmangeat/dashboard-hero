@@ -4,10 +4,10 @@ import TodoItemInput from '../todo/TodoItemInput'
 import TodoProgressBar from './TodoProgressBar'
 
 export default (props) => 
-    h('div', { class: 'comp-todo' }, [
+    h('div', { class: 'comp comp-2 comp-todo col-md-4 col-sm-12 col-xd-12' }, [
         h('div', { class: 'comp-header'}, ["Liste des tâches"]),
         h('div', { class: 'comp-body' }, [
-            h('div', { class: 'comp-todo-top'}, [
+            h('div', { class: 'todo-top'}, [
                 TodoList({
                     items: props.items,
                     onToggleDone: props.onToggleDone,
