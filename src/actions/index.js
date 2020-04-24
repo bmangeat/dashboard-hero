@@ -246,7 +246,7 @@ export default {
             x: '-=200',
             ease: Linear.easeNone,
             stagger: {
-                each: 0.4,
+                each: 0.5,
                 repeat: -1
             }
         })

@@ -18,7 +18,7 @@ export default (props) =>
                 
             h('path', { id:"liquid", d:"M757,552v490H357V552c50,0,50,20,100,20s50-20,100-20,50,20,100,20S707,552,757,552Z" }),
             h('mask', { id:"gradMask" }, [
-                h('use', { href:"#liquid", class:"liquid", x:"0", fill:"#FFB700" }),
+                h('use', { href:"#liquid", class:"liquid", x:"0", fill:"#FCEFD6" }),
                 h('use', { href:"#liquid", class:"liquid", x:"0", fill:"#EEE", opacity:"0.7" })
             ])   
 
