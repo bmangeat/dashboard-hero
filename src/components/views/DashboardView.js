@@ -1,7 +1,5 @@
 import {h} from 'hyperapp'
 import Header from '../header/HeaderBar'
-import TodoList from '../todo/TodoList'
-import TodoItemInput from '../todo/TodoItemInput'
 import Todo from '../todo/Todo'
 
 export default (state, actions) => h('div',

@@ -237,7 +237,7 @@ export default {
      */
     progressBarAnimation: () => (state) => {
         gsap.registerPlugin(CSSPlugin)
-        var xmlns = "http://www.w3.org/2000/svg",
+        const xmlns = "http://www.w3.org/2000/svg",
         xlinkns = "http://www.w3.org/1999/xlink",
         select = function(s) {
         return document.querySelector(s);
@@ -245,6 +245,7 @@ export default {
         selectAll = function(s) {
         return document.querySelectorAll(s);
         },
+
         liquid = selectAll('.liquid'),
         minDragY = -380
         
@@ -253,24 +254,24 @@ export default {
         visibility: 'visible'
     })
 
-    var tl = new gsap.timeline()
+    const tl = new gsap.timeline()
     tl.staggerTo(liquid, 0.7, {
-    x:'-=200',
+    x: 0,
     ease:Linear.easeNone,
     repeat:-1
-    },0.4)
+    },0.9)
 
     tl.time(100);
 
-    document.addEventListener("touchmove", function(event){
-        event.preventDefault();
-    });
+    // document.addEventListener("touchmove", function(event){
+    //     event.preventDefault();
+    // });
 
     function onUpdate(){
 
     gsap.to(liquid, 1.3, {
         y:state.ratioDone*(-380)*1.12,
-        ease:Elastic.easeOut.config(1,0.4)
+        // ease: Elastic.easeOut.config(1,0.4)
     })
     
     }

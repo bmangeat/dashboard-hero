@@ -9,16 +9,17 @@ export default (props) =>
         h('div', { class: 'comp-body' }, [
             h('div', { class: 'comp-todo-top'}, [
                 TodoList({
-                items: props.items,
-                onToggleDone: props.onToggleDone,
-                onDelete: props.onDelete
+                    items: props.items,
+                    onToggleDone: props.onToggleDone,
+                    onDelete: props.onDelete,
+                    color: props.color
                 }),
                 
                 h('div', { class: 'todo-progressbar'}, [
                     TodoProgressBar({
                         color: props.color,
                         ratioDone: props.ratioDone,
-                        animation: props.animation
+                        // animation: props.animation
                     })
                 ]),
             ]),                
