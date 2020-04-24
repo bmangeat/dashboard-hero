@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Chart from 'chart.js'
+import { TweenMax, TimelineMax, Linear, Elastic } from "gsap/all";
 
 const API_HERO = 'https://superheroapi.com/api.php/10213784867090388/'                                                      // url SuperHero API with key : 10213784867090388
 const API_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url OpenWeatherMap with key : 57a5dad53fd98ea8812e586a2b18d67e
@@ -87,6 +88,7 @@ export default {
     getData: (idHero) => (state, actions) => {
         actions.fetchWeather()
         actions.fetchHero(idHero)
+        actions.fetchTodos()
     },
 
     /**
@@ -272,6 +274,156 @@ export default {
             default:
                 return colorToChange
         }
+    },
+
+    /**
+     * @desc Set the state with the correct todo values
+     * @param todos Data from the API corresponding to the todo list
+     */
+    setTodos: (todos) => (state) => {
+        return { ...state, todoItems: todos }
+    },
+
+    /**
+     * @desc Get the todos from API
+     */
+    fetchTodos: () => (state, actions) => {
+        axios.get('https://agile-escarpment-40479.herokuapp.com/todos')
+            .then((response) => {
+                actions.setTodos(response.data.map(todo => ({
+                    done: todo.completed,
+                    text: todo.title,
+                    id: todo.id,
+                    createdAt: todo.createdAt
+                })))
+                actions.setRatioDone()
+                actions.updateProgressBar()
+            })
+            .catch((err) => console.error('err', err))
+    },
+
+    /**
+     * @desc Switch done value in todo item
+     * @param id id of the todo item
+     */
+    toggleDone: (id) => (state, actions) => {
+        const itemAtId = state.todoItems.find(item => item.id === id)
+        if (itemAtId === undefined) {
+            console.error(`Item id ${id} could not be found, this should not happen`)
+            return
+        }
+
+        axios.put('https://agile-escarpment-40479.herokuapp.com/todos/' + id, {
+            completed: !itemAtId.done,
+            _id: id,
+            title: itemAtId.text,
+            userId: 70,
+            createdAt: itemAtId.createdAt,
+            updatedAt: new Date().toISOString(),
+            __v: 0,
+            id: id
+        })
+            .then((response) => {
+                console.log(response.status)
+            })
+            .catch((err) => console.error('err', err.response))
+
+        actions.setTodos(state.todoItems.filter(item => item.id !== id).concat({ ...itemAtId, done: !itemAtId.done }))
+        actions.setRatioDone()
+        actions.updateProgressBar()
+    },
+    /**
+     * @desc Update addItemInput value with input value
+     */
+    updateTodoInput: (event) => (state) => ({ ...state, addItemInput: event.target.value }),
+
+    /**
+     * @desc Add item in input to todo list + post in API, setTimeout to fetch uptaded API
+     */
+    addTodoItem: () => (state, actions) => {
+        const input = state.addItemInput
+        if (input.length === 0) {
+            return state
+        }
+
+        const id = Math.random().toString(16).substring(2, 8)
+        const date = new Date().toISOString()
+
+        axios.post('https://agile-escarpment-40479.herokuapp.com/todos', {
+            completed: false,
+            title: input,
+            userId: 70,
+        })
+            .then((response) => {
+                console.log(response)
+                actions.fetchTodos()
+            })
+            .catch((err) => console.error('err', err.response))
+
+        return {
+            ...state,
+            addItemInput: ""
+        }
+    },
+
+    /**
+     * @desc Delete item in API + setTimeout to fetch updated API
+     * @param id id of the todo item
+     */
+    deleteTodoItem: (id) => (state, actions) => {
+        const itemAtId = state.todoItems.find(item => item.id === id)
+        if (itemAtId === undefined) {
+            console.error(`Item id ${id} could not be found, this should not happen`)
+            return
+        }
+
+        axios.delete('https://agile-escarpment-40479.herokuapp.com/todos/' + id)
+            .then((response) => {
+                console.log(response.status)
+                actions.fetchTodos()
+            })
+            .catch((err) => console.error('err', err.response))
+
+    },
+
+    /**
+     * @desc Set the ratio task done
+     */
+    setRatioDone: () => (state) => {
+        return {
+            ...state,
+            ratioDone: state.todoItems.filter(item => item.done === true).length / state.todoItems.length
+        }
+    },
+
+    /**
+     * @desc Animate progress bar
+     * @param element svg progress bar
+     */
+    progressBarAnimation: (element) => () => {
+        const liquid = element.querySelectorAll('.liquid')
+        TweenMax.set('svg', {
+            visibility: 'visible'
+        })
+        const tl = new TimelineMax()
+        tl.to(liquid, 0.9, {
+            x: '-=200',
+            ease: Linear.easeNone,
+            stagger: {
+                each: 0.5,
+                repeat: -1
+            }
+        })
+    },
+
+    /**
+     * @desc Update progress bar (with state.ratioDone)
+     */
+    updateProgressBar: () => (state) => {
+        TweenMax.to(liquid, 1.3, {
+            y: state.ratioDone * (-380) * 1.12,
+            ease: Elastic.easeOut.config(1, 0.4)
+        })
     }
 
 

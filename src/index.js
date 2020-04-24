@@ -11,6 +11,7 @@ import '../styles/component-weather.scss'
 import '../styles/component-capacities.scss'
 import '../styles/component-identity.scss'
 import '../styles/loader.scss'
+import '../styles/component-todo.scss'
 
 import actions from './actions'
 import state from './state'

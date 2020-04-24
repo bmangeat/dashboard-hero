@@ -1,5 +1,6 @@
 import Weather from '../weather/Weather'
 import { h } from 'hyperapp'
+import Todo from '../todo/Todo'
 
 import Header from '../header/Header'
 import Identity from '../identity/Identity'
@@ -27,8 +28,15 @@ export default (state, actions) =>
             <Capacities
                 createCapacitiesChart={(element) => actions.createCapacitiesChart(element)}
             />
-            <Capacities
-                createCapacitiesChart={(element) => actions.createCapacitiesChart(element)}
+            <Todo
+                items={state.todoItems}
+                onToggleDone={(id) => () => actions.toggleDone(id)}
+                onDelete={(id) => () => actions.deleteTodoItem(id)}
+                text={state.addItemInput}
+                onInputChange={actions.updateTodoInput}
+                onAdd={actions.addTodoItem}
+                color={state.color}
+                animation={(element) => { actions.progressBarAnimation(element) }}
             />
         </div>
         {Loader({
