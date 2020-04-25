@@ -3,9 +3,9 @@ import TodoList from '../todo/TodoList'
 import TodoItemInput from '../todo/TodoItemInput'
 import TodoProgressBar from './TodoProgressBar'
 
-export default (props) => 
+export default (props) =>
     <div class='comp comp-2 comp-todo'>
-        <div class='comp-header'>Liste des tâches</div>
+        <div class='comp-header'>Todolist</div>
         <div class='comp-body'>
             <div class='todo-top'>
                 <TodoList
