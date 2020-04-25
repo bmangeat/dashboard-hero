@@ -15,7 +15,7 @@ export default {
         return {
             ...state,
             hero: {
-                id: object.id,
+                id: parseInt(object.id),
                 name: object.name,
                 powerstats: object.powerstats,
                 biography: {
@@ -288,10 +288,10 @@ export default {
     /**
      * @desc Get the todos from API
      */
-    fetchTodos: (heroId) => (state, actions) => {
+    fetchTodos: (idHero) => (state, actions) => {
         axios.get('https://agile-escarpment-40479.herokuapp.com/todos')
             .then((response) => {
-                actions.setTodos(response.data.filter(filterById => filterById.userId === heroId).map(todo => ({
+                actions.setTodos(response.data.filter(elem => idHero === elem.userId).map(todo => ({
                     done: todo.completed,
                     text: todo.title,
                     id: todo.id,
