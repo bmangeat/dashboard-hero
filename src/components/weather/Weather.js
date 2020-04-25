@@ -6,7 +6,7 @@ import Logo from './WeatherLogoColor'
 
 export default (props) =>
     <section class="comp comp-2 comp-weather">
-        <div class="comp-header">Météo du crime</div>
+        <div class="comp-header">Crime weather</div>
         <div class="comp-body">
                 <div class="illustration">
                     <div class="message">

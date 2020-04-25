@@ -15,6 +15,7 @@ export default {
         return {
             ...state,
             hero: {
+                id: parseInt(object.id),
                 name: object.name,
                 powerstats: object.powerstats,
                 biography: {
@@ -88,7 +89,7 @@ export default {
     getData: (idHero) => (state, actions) => {
         actions.fetchWeather()
         actions.fetchHero(idHero)
-        actions.fetchTodos()
+        actions.fetchTodos(idHero)
     },
 
     /**
@@ -144,9 +145,9 @@ export default {
         const config = {
             type: 'radar',
             data: {
-                labels: ['Intelligence', 'Force', 'Vitesse', 'Résistance', 'Puissance', 'Combat'],
+                labels: ['Intelligence', 'Strength', 'Speed', 'Durability', 'Power', 'Combat'],
                 datasets: [{
-                    label: 'Capacitées',
+                    label: 'Powerstats',
                     lineTension: 0.1,
                     pointHoverBackgroundColor: '#f0f0f0',
                     pointHoverRadius: 5,
@@ -252,12 +253,11 @@ export default {
      * @desc Display loader when hero is changing (put class on body) and freeze body until the end of animation
      */
     addLoader: () => {
-        
         document.body.classList.remove('loaded')
         document.body.classList.add('fix-body')
         const loader = document.getElementById('page-loading');
         loader.style.display = 'block'
-        
+
         setTimeout(() => {
             window.scroll(0, 0)
             document.body.classList.add('loaded')
@@ -299,10 +299,10 @@ export default {
     /**
      * @desc Get the todos from API
      */
-    fetchTodos: () => (state, actions) => {
+    fetchTodos: (idHero) => (state, actions) => {
         axios.get('https://agile-escarpment-40479.herokuapp.com/todos')
             .then((response) => {
-                actions.setTodos(response.data.map(todo => ({
+                actions.setTodos(response.data.filter(elem => idHero === elem.userId).map(todo => ({
                     done: todo.completed,
                     text: todo.title,
                     id: todo.id,
@@ -329,7 +329,7 @@ export default {
             completed: !itemAtId.done,
             _id: id,
             title: itemAtId.text,
-            userId: 70,
+            userId: state.id,
             createdAt: itemAtId.createdAt,
             updatedAt: new Date().toISOString(),
             __v: 0,
@@ -344,7 +344,7 @@ export default {
         actions.setRatioDone()
         actions.updateProgressBar()
     },
-    
+
     /**
      * @desc Update addItemInput value with input value
      */
@@ -365,11 +365,11 @@ export default {
         axios.post('https://agile-escarpment-40479.herokuapp.com/todos', {
             completed: false,
             title: input,
-            userId: 70,
+            userId: state.hero.id
         })
             .then((response) => {
                 console.log(response)
-                actions.fetchTodos()
+                actions.fetchTodos(state.hero.id)
             })
             .catch((err) => console.error('err', err.response))
 
@@ -393,7 +393,7 @@ export default {
         axios.delete('https://agile-escarpment-40479.herokuapp.com/todos/' + id)
             .then((response) => {
                 console.log(response.status)
-                actions.fetchTodos()
+                actions.fetchTodos(state.hero.id)
             })
             .catch((err) => console.error('err', err.response))
 
