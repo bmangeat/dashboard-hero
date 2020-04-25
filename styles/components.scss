@@ -5,17 +5,15 @@ $bg-blue-1: #0e131a;
 $bg-blue-2: #191f28;
 $bg-blue-3: #242c38;
 
-
 /*------------------------------
 Components - general
 ------------------------------*/
 
 #board {
-  background-color: $bg-blue-1;
   flex-grow: 1;
+  background-color: $bg-blue-1;
   padding: 0.5rem;
-  overflow-x: hidden;
-  overflow-y: auto;
+  min-width: 300px;
 }
 
 .comp {
