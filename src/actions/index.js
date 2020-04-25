@@ -357,7 +357,7 @@ export default {
         })
             .then((response) => {
                 console.log(response)
-                actions.fetchTodos()
+                actions.fetchTodos(state.hero.id)
             })
             .catch((err) => console.error('err', err.response))
 
@@ -381,7 +381,7 @@ export default {
         axios.delete('https://agile-escarpment-40479.herokuapp.com/todos/' + id)
             .then((response) => {
                 console.log(response.status)
-                actions.fetchTodos()
+                actions.fetchTodos(state.hero.id)
             })
             .catch((err) => console.error('err', err.response))
 
