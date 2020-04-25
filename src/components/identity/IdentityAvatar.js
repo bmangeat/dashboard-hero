@@ -3,7 +3,7 @@ import {h} from 'hyperapp'
 export default (props) =>
     props.gender === 'Male' ?
         <div class="identity-avatar col-md-6 col-sm-6 col-xs-6">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 425.2 425.2">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 425.2 425.2" class="svg-content" preserveAspectRatio="xMinYMin meet">
                 <defs>
                     <filter id="f3" x="0" y="0" width="150%" height="150%">
                         <feOffset result="offOut" in="SourceAlpha" dx="0" dy="0" />
@@ -112,7 +112,7 @@ export default (props) =>
         </div>
         :
         <div class="identity-avatar col-md-6 col-sm-6 col-xs-6">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 425.2 425.2">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 425.2 425.2" class="svg-content" preserveAspectRatio="xMinYMin meet">
                 <defs>
                     <filter id="f3" x="0" y="0" width="150%" height="150%">
                         <feOffset result="offOut" in="SourceAlpha" dx="0" dy="0" />

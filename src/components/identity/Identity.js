@@ -6,7 +6,7 @@ import Carac from './IdentityCarac'
 import Biography from './IdentityBio'
 
 export default (props) =>
-    <section class="comp comp-1 comp-identity col-md-4 col-sm-12 col-xd-12">
+    <section class="comp comp-1 comp-identity">
         <div class="comp-header">Identité</div>
         <div class="comp-body">
             <div class="identity-main row middle-md">

@@ -5,19 +5,17 @@ import Gradient from './WeatherColor'
 import Logo from './WeatherLogoColor'
 
 export default (props) =>
-
-    <section class="comp comp-2 comp-weather col-md-4 col-sm-12 col-xd-12">
+    <section class="comp comp-2 comp-weather">
         <div class="comp-header">Météo du crime</div>
         <div class="comp-body">
-            <div class="info-weather">
-                <div class="message">
-                    {Message({
-                        weather: props.weather,
-                        hero: props.hero
-                    })}
-                </div>
                 <div class="illustration">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 550 290" style="enable-background:new 0 0 550 290;">
+                    <div class="message">
+                        {Message({
+                            weather: props.weather,
+                            hero: props.hero
+                        })}
+                    </div>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 550 290" preserveAspectRatio="xMinYMin meet">
                         {Gradient({weather: props.weather})}
                         <g id="Background">
                             <rect class="st0" width="550" height="290"/>
@@ -60,5 +58,4 @@ export default (props) =>
                     {Logo({weather: props.weather})}
                 </div>
             </div>
-        </div>
     </section>

@@ -9,7 +9,7 @@ import Loader from '../loader/Loader'
 import Footer from "../footer/Footer";
 
 export default (state, actions) =>
-    <div id="heroWindow" class={state.hero.name.replace(/ .*/, '')} oncreate={actions.selectHero}>
+    <div id="heroWindow" oncreate={actions.selectHero}>
         <Header
             name={state.hero.name}
             photo={state.hero.image.url}
@@ -17,10 +17,13 @@ export default (state, actions) =>
             color={state.color}
         />
         <div id="board" class="row">
+        <div class="col-md-4 col-xs-12">
             <Identity
                 hero={state.hero}
                 color={state.color}
             />
+        </div>
+        <div class="col-md-4 col-xs-12">
             <Weather
                 weather={state.weather}
                 hero={state.hero}
@@ -28,6 +31,8 @@ export default (state, actions) =>
             <Capacities
                 createCapacitiesChart={(element) => actions.createCapacitiesChart(element)}
             />
+        </div>
+        <div class="col-md-4 col-xs-12">
             <Todo
                 items={state.todoItems}
                 onToggleDone={(id) => () => actions.toggleDone(id)}
@@ -38,6 +43,7 @@ export default (state, actions) =>
                 color={state.color}
                 animation={(element) => { actions.progressBarAnimation(element) }}
             />
+        </div>
         </div>
         {Loader({
             color: state.color

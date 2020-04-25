@@ -1,7 +1,7 @@
 import { h } from 'hyperapp'
 
 export default (props) =>
-    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="350 110 100 400" oncreate= {props.animation}>
+    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="350 110 100 400" preserveAspectRatio="xMinYMin meet" class="svg-content" oncreate= {props.animation}>
         <defs>
             <linearGradient id="liquidGrad" x1="557" y1="150" x2="557" y2="546" gradientUnits="userSpaceOnUse">
                 <stop offset="0.2" stop-color={props.color}/>
