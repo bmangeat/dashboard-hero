@@ -1,0 +1,374 @@
+// @variables
+$font-color: #f0f0f0;
+$bg-board: #0e131a;
+$bg-comp-header: #242c38;
+$bg-comp-body: #191f28;
+
+/*------------------------------
+Components - general
+------------------------------*/
+
+#board {
+  flex-grow: 1;
+  padding: 0.5rem;
+}
+
+.comp {
+  box-sizing: border-box;
+  padding: 0.5rem 0;
+
+  .comp-header {
+    background-color: $bg-comp-header;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 0.25rem 1rem;
+    line-height: 140.62%;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .comp-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    height: calc(100% - 40px);
+    background-color: $bg-comp-body;
+    border-radius: 0 0 10px 10px;
+    padding: 1.5rem;
+  }
+}
+
+.comp-1 {
+  height: 100%;
+}
+
+.comp-2 {
+  height: 50%;
+  max-height: 400px;
+}
+
+// @resize
+
+@media only screen and (max-width: 62em) {
+  #board {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .comp-2 {
+      height: 400px;
+    }
+  }
+}
+
+/*------------------------------
+Component capacities
+------------------------------*/
+
+.comp-capacities {
+
+  .comp-body {}
+}
+
+/*------------------------------
+Component weather
+------------------------------*/
+
+.comp-weather {
+
+  .comp-body {
+
+    .illustration {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+
+      .message {
+        font-weight: 300;
+        font-size: 0.9rem;
+        text-align: center;
+        position: absolute;
+        width: 100%;
+
+        p {
+          margin: 0;
+          padding: 0.5rem;
+        }
+      }
+
+      .st0 {
+        fill: url(#SVGID_1_);
+      }
+
+      .st1 {
+        fill: url(#Plan3_1_);
+      }
+
+      .st2 {
+        fill: url(#Plan2_1_);
+      }
+
+      .st3 {
+        fill: url(#Plan1_1_);
+      }
+    }
+
+    .logo {
+      text-align: center;
+      margin-top: 0.5rem;
+
+      .st4 {
+        fill: #f0f0f0;
+      }
+
+      .st5 {
+        fill: #f8cce1;
+      }
+
+      .st6 {
+        fill: #00a2e4;
+      }
+
+      .st7 {
+        fill: #5bb030;
+      }
+
+      .st8 {
+        fill: #fcbb0a;
+      }
+
+      .st9 {
+        fill: #e7302a;
+      }
+
+      .alert {
+        width: 100%;
+        max-width: 1.5rem;
+        margin: 0 0.2rem;
+      }
+    }
+  }
+}
+
+/*------------------------------
+Component todo
+------------------------------*/
+
+// @layout
+.comp-todo {
+
+  .comp-body {
+
+    .todo-top {
+      display: flex;
+      height: calc(100% - 55px);
+
+      .todo-list {
+        flex-grow: 1;
+        margin-right: 1rem;
+        overflow-y: auto;
+        scrollbar-width: thin;
+
+        .todo-item {
+          position: relative;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 40px;
+          font-weight: 300;
+          font-size: 0.7rem;
+          text-align: left;
+
+          p {
+            margin: 0;
+            flex: 1 0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+
+          input[type="checkbox"] {
+            visibility: hidden;
+            position: absolute;
+          }
+
+          label {
+            box-sizing: border-box;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            height: 20px;
+            width: 20px;
+            margin-right: 0.5rem;
+            position: relative;
+          }
+
+          input[type="checkbox"]:checked+label:after {
+            visibility: visible;
+          }
+
+          label:after {
+            content: "";
+            visibility: hidden;
+            position: absolute;
+            width: 10px;
+            height: 5px;
+            border: 2px solid #fff;
+            border-top: none;
+            border-right: none;
+            top: 5px;
+            left: 4px;
+            transform: rotate(-45deg);
+          }
+
+          input[type="button"] {
+            background: url(img/close.svg) no-repeat center/10px;
+            border: none;
+            cursor: pointer;
+            margin: 0 0.5rem;
+          }
+        }
+      }
+
+      .todo-progressbar {
+        flex-basis: 50px;
+        text-align: center;
+      }
+    }
+
+    .todo-item-input {
+      display: flex;
+      margin-top: 1rem;
+
+      input[type="text"] {
+        flex-grow: 1;
+        height: 2rem;
+        margin-right: 7px;
+        padding: 0 0 0 10px;
+        border: 1px solid $bg-comp-header;
+        background-color: $bg-board;
+        box-sizing: border-box;
+        color: $font-color;
+      }
+
+      ::placeholder {
+        color: $bg-comp-header;
+        opacity: 1;
+      }
+
+      input[type="button"] {
+        width: 85px;
+        border-radius: 4px;
+        background-color: $bg-comp-header;
+        border: none;
+        color: $font-color;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.3;
+        }
+      }
+    }
+
+  }
+}
+
+/*------------------------------
+Component identity
+------------------------------*/
+
+.comp-identity {
+
+  .comp-body {
+    justify-content: start;
+
+    .identity-main {
+      margin-bottom: 1rem;
+      align-items: center;
+
+      .identity-avatar {
+        height: 175px;
+
+        .st0 {
+          fill: #f49e77;
+        }
+
+        .st1 {
+          fill: #d98968;
+        }
+
+        .st2 {
+          fill: #f8c09c;
+        }
+
+        .st3 {
+          fill: #d98968;
+          stroke: #d98a68;
+          stroke-miterlimit: 10;
+        }
+
+        .st4 {
+          fill: #010202;
+        }
+
+        .st5 {
+          fill: #221e1f;
+        }
+
+        .st6 {
+          fill: #111110;
+        }
+      }
+
+      .identity-essential {
+
+        h4 {
+          font-weight: bold;
+          font-size: 1.4rem;
+          line-height: 140.62%;
+          margin: 0 0 1rem 0;
+        }
+
+        .identity-sub-essential {
+          p {
+            font-weight: 300;
+            font-size: 0.9rem;
+            line-height: 140.62%;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .identity-section {
+      h3 {
+        font-weight: 600;
+        font-size: 0.8rem;
+        line-height: 140.62%;
+        text-transform: uppercase;
+        margin: 0.3rem 0;
+      }
+
+      .identity-subinformation {
+        border-bottom: 1px solid;
+        padding: 0.4rem 0;
+        margin: 0 0.4rem;
+
+        .identity-section-key {
+          font-size: 0.7rem;
+          font-weight: 600;
+          line-height: 1rem;
+        }
+
+        .identity-section-value {
+          font-size: 0.7rem;
+          font-weight: 300;
+          line-height: 1rem;
+        }
+      }
+    }
+
+    .identity-section:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import { h } from 'hyperapp'
 
 export default () =>
-    <div class="logo-league col-md-2 col-sm-2 col-xs-5 full-height vertical-align">
-        <svg class="full-height" version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 480 100">
+    <div class="header-logo">
+        <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 480 100" class="svg-content" preserveAspectRatio="xMinYMin meet">
             <rect id="bg" x="-0.2" y="-0.2" class="bg-league" width="480.2" height="100"></rect>
             <rect id="stroke" x="4" y="4.9" class="stroke-league" width="472" height="90.3"></rect>
             <g id="texte">

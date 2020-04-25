@@ -22,9 +22,10 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "hyperapp": "^1.2.10",
     "@hyperapp/logger": "^0.5.0",
     "axios": "^0.19.2",
+    "gsap": "^3.2.6",
+    "hyperapp": "^1.2.10",
     "chart.js": "^2.9.3",
     "babel-plugin-transform-react-jsx": "^6.24.1"
   },

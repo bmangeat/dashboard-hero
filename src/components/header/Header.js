@@ -7,15 +7,20 @@ import HeaderLogo from './HeaderLogo'
 
 export default (props) =>
     <header class="row">
-        {HeaderLogo}
-        {HeaderSelect({
-            selectHero: props.selectHero
-        })}
-        {HeaderProfile({
-            name: props.name
-        })}
-        {HeaderImg({
-            photo: props.photo
-        })}
+        <div class="header-logoselect col-sm-8 col-xs-9">
+            <HeaderLogo/>
+            <HeaderSelect
+                selectHero={props.selectHero}
+            />
+        </div>
+        <div class="header-profileimg col-sm-4 col-xs-3">
+            <HeaderProfile
+                name={props.name}
+                color={props.color}
+            />
+            <HeaderImg
+                photo={props.photo}
+            />
+        </div>
     </header>
 
