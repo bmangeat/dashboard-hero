@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Chart from 'chart.js'
-import { TweenMax, TimelineMax, Linear, Elastic } from "gsap/all";
+import {TweenMax, TimelineMax, Linear, Elastic} from "gsap/all";
 
 const API_HERO = 'https://superheroapi.com/api.php/10213784867090388/'                                                      // url SuperHero API with key : 10213784867090388
 const API_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url OpenWeatherMap with key : 57a5dad53fd98ea8812e586a2b18d67e
@@ -15,6 +15,7 @@ export default {
         return {
             ...state,
             hero: {
+                id: object.id,
                 name: object.name,
                 powerstats: object.powerstats,
                 biography: {
@@ -88,7 +89,7 @@ export default {
     getData: (idHero) => (state, actions) => {
         actions.fetchWeather()
         actions.fetchHero(idHero)
-        actions.fetchTodos()
+        actions.fetchTodos(idHero)
     },
 
     /**
@@ -281,16 +282,16 @@ export default {
      * @param todos Data from the API corresponding to the todo list
      */
     setTodos: (todos) => (state) => {
-        return { ...state, todoItems: todos }
+        return {...state, todoItems: todos}
     },
 
     /**
      * @desc Get the todos from API
      */
-    fetchTodos: () => (state, actions) => {
+    fetchTodos: (heroId) => (state, actions) => {
         axios.get('https://agile-escarpment-40479.herokuapp.com/todos')
             .then((response) => {
-                actions.setTodos(response.data.map(todo => ({
+                actions.setTodos(response.data.filter(filterById => filterById.userId === heroId).map(todo => ({
                     done: todo.completed,
                     text: todo.title,
                     id: todo.id,
@@ -317,7 +318,7 @@ export default {
             completed: !itemAtId.done,
             _id: id,
             title: itemAtId.text,
-            userId: 70,
+            userId: state.id,
             createdAt: itemAtId.createdAt,
             updatedAt: new Date().toISOString(),
             __v: 0,
@@ -328,14 +329,14 @@ export default {
             })
             .catch((err) => console.error('err', err.response))
 
-        actions.setTodos(state.todoItems.filter(item => item.id !== id).concat({ ...itemAtId, done: !itemAtId.done }))
+        actions.setTodos(state.todoItems.filter(item => item.id !== id).concat({...itemAtId, done: !itemAtId.done}))
         actions.setRatioDone()
         actions.updateProgressBar()
     },
     /**
      * @desc Update addItemInput value with input value
      */
-    updateTodoInput: (event) => (state) => ({ ...state, addItemInput: event.target.value }),
+    updateTodoInput: (event) => (state) => ({...state, addItemInput: event.target.value}),
 
     /**
      * @desc Add item in input to todo list + post in API, setTimeout to fetch uptaded API
@@ -352,7 +353,7 @@ export default {
         axios.post('https://agile-escarpment-40479.herokuapp.com/todos', {
             completed: false,
             title: input,
-            userId: 70,
+            userId: state.hero.id
         })
             .then((response) => {
                 console.log(response)
@@ -425,7 +426,6 @@ export default {
             ease: Elastic.easeOut.config(1, 0.4)
         })
     }
-
 
 
 }

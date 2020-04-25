@@ -5,6 +5,7 @@ export default {
     },
     weather: '', // "main" : Mist, Clear, Drizzle, Clouds, Rain, Fog, Dust, Haze, Snow, Thunderstorm
     hero: {
+        id: 0,
         name: '',
         powerstats: {
             intelligence: 0,
