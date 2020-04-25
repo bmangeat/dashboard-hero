@@ -21,7 +21,7 @@ export default (props) =>
             </mask>
         </defs>
         <g class="whole" transform="translate(0, -40)">
-            <use href="#tube" class="tubeBg" fill="#C8D9D3" opacity="0.61"/>       
+            <use href="#tube" class="tubeBg" fill="#C8D9D3" opacity="0.61"/>
             <g mask="url(#gradMask)">
                 <use href="#tube" fill="url(#liquidGrad)"/>
             </g>

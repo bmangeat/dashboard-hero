@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Chart from 'chart.js'
-import { TweenMax, TimelineMax, Linear, Elastic } from "gsap/all";
+import { TweenMax, TimelineMax, Linear, Elastic } from 'gsap/all'
 
 const API_HERO = 'https://superheroapi.com/api.php/10213784867090388/'                                                      // url SuperHero API with key : 10213784867090388
 const API_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url OpenWeatherMap with key : 57a5dad53fd98ea8812e586a2b18d67e and id city (NYC) : 5128581
@@ -100,30 +100,30 @@ export default {
         const sel = document.getElementById('list-hero')
         const opt = sel.options[sel.selectedIndex]
         switch (opt.text) {
-            case 'Batman':
-                actions.getData(70)
-                state.color = '#ffb700'
-                break
-            case 'Superman':
-                actions.getData(644)
-                state.color = '#5b98ff'
-                break
-            case 'Joker':
-                actions.getData(370)
-                state.color = '#34a853'
-                break
-            case 'Catwoman':
-                actions.getData(165)
-                state.color = '#bb54ff'
-                break
-            case 'Jack-Jack':
-                actions.getData(351)
-                state.color = '#ea4335'
-                break
-            case 'Harley Quinn':
-                actions.getData(309)
-                state.color = '#eb64aa'
-                break
+        case 'Batman':
+            actions.getData(70)
+            state.color = '#ffb700'
+            break
+        case 'Superman':
+            actions.getData(644)
+            state.color = '#5b98ff'
+            break
+        case 'Joker':
+            actions.getData(370)
+            state.color = '#34a853'
+            break
+        case 'Catwoman':
+            actions.getData(165)
+            state.color = '#bb54ff'
+            break
+        case 'Jack-Jack':
+            actions.getData(351)
+            state.color = '#ea4335'
+            break
+        case 'Harley Quinn':
+            actions.getData(309)
+            state.color = '#eb64aa'
+            break
         }
     },
 
@@ -227,10 +227,10 @@ export default {
         dataCapacitiesChart.data = [
             0, 0, 0, 0, 0, 0
         ]
-        dataCapacitiesChart.backgroundColor = color("#ffffff").alpha(0.5).rgbString()
-        dataCapacitiesChart.borderColor = "#ffffff"
-        dataCapacitiesChart.pointBackgroundColor = "#ffffff"
-        dataCapacitiesChart.pointBackgroundColor = "#ffffff"
+        dataCapacitiesChart.backgroundColor = color('#ffffff').alpha(0.5).rgbString()
+        dataCapacitiesChart.borderColor = '#ffffff'
+        dataCapacitiesChart.pointBackgroundColor = '#ffffff'
+        dataCapacitiesChart.pointBackgroundColor = '#ffffff'
         state.charts.capacitiesChart.update(0)
         dataCapacitiesChart.data = [
             heroPowerstats.intelligence,
@@ -255,7 +255,7 @@ export default {
     addLoader: () => {
         document.body.classList.remove('loaded')
         document.body.classList.add('fix-body')
-        const loader = document.getElementById('page-loading');
+        const loader = document.getElementById('page-loading')
         loader.style.display = 'block'
 
         setTimeout(() => {
@@ -275,16 +275,16 @@ export default {
      */
     modifyColor: (colorToChange) => {
         switch (colorToChange) {
-            case 'blue':
-                return '#5b98fc'
-            case 'blond':
-                return '#ffffcc'
-            case 'green':
-                return '#34a853'
-            case 'black':
-                return '#221e1f'
-            default:
-                return colorToChange
+        case 'blue':
+            return '#5b98fc'
+        case 'blond':
+            return '#ffffcc'
+        case 'green':
+            return '#34a853'
+        case 'black':
+            return '#221e1f'
+        default:
+            return colorToChange
         }
     },
 
@@ -335,9 +335,7 @@ export default {
             __v: 0,
             id: id
         })
-            .then((response) => {
-                console.log(response.status)
-            })
+            .then()
             .catch((err) => console.error('err', err.response))
 
         actions.setTodos(state.todoItems.filter(item => item.id !== id).concat({ ...itemAtId, done: !itemAtId.done }))
@@ -367,15 +365,14 @@ export default {
             title: input,
             userId: state.hero.id
         })
-            .then((response) => {
-                console.log(response)
+            .then(() => {
                 actions.fetchTodos(state.hero.id)
             })
             .catch((err) => console.error('err', err.response))
 
         return {
             ...state,
-            addItemInput: ""
+            addItemInput: ''
         }
     },
 
@@ -391,8 +388,7 @@ export default {
         }
 
         axios.delete('https://agile-escarpment-40479.herokuapp.com/todos/' + id)
-            .then((response) => {
-                console.log(response.status)
+            .then(() => {
                 actions.fetchTodos(state.hero.id)
             })
             .catch((err) => console.error('err', err.response))
@@ -433,6 +429,7 @@ export default {
      * @desc Update progress bar (with state.ratioDone)
      */
     updateProgressBar: () => (state) => {
+        const liquid = document.querySelectorAll('.liquid')
         TweenMax.to(liquid, 1.3, {
             y: state.ratioDone * (-380) * 1.12,
             ease: Elastic.easeOut.config(1, 0.4)

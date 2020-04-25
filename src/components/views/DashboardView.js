@@ -6,7 +6,7 @@ import Header from '../header/Header'
 import Identity from '../identity/Identity'
 import Capacities from '../capacities/Capacities'
 import Loader from '../loader/Loader'
-import Footer from "../footer/Footer";
+import Footer from '../footer/Footer'
 
 export default (state, actions) =>
     <div id="heroWindow" oncreate={actions.selectHero}>
@@ -41,7 +41,9 @@ export default (state, actions) =>
                     onInputChange={actions.updateTodoInput}
                     onAdd={actions.addTodoItem}
                     color={state.color}
-                    animation={(element) => { actions.progressBarAnimation(element) }}
+                    animation={(element) => {
+                        actions.progressBarAnimation(element)
+                    }}
                 />
             </div>
         </div>

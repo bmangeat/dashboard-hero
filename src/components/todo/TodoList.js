@@ -2,7 +2,7 @@ import { h } from 'hyperapp'
 import TodoItem from './TodoItem'
 
 export default (props) =>
-    <div class= 'todo-list'>
+    <div class= "todo-list">
         {props.items
             .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
             .map(item => <div>
@@ -15,7 +15,7 @@ export default (props) =>
                     color= {props.color}
                     id= {item.id}
                 />
-                <hr style='margin: 0'></hr>
+                <hr style="margin: 0"></hr>
             </div>
             )
         }
