@@ -17,5 +17,6 @@ export default (props) =>
                 />
                 <hr style='margin: 0'></hr>
             </div>
-        )}
+            )
+        }
     </div>

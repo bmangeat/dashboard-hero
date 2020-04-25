@@ -3,8 +3,8 @@ import Chart from 'chart.js'
 import { TweenMax, TimelineMax, Linear, Elastic } from "gsap/all";
 
 const API_HERO = 'https://superheroapi.com/api.php/10213784867090388/'                                                      // url SuperHero API with key : 10213784867090388
-const API_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url OpenWeatherMap with key : 57a5dad53fd98ea8812e586a2b18d67e
-// and id city (NYC) : 5128581
+const API_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url OpenWeatherMap with key : 57a5dad53fd98ea8812e586a2b18d67e and id city (NYC) : 5128581
+
 export default {
 
     /**
@@ -148,28 +148,28 @@ export default {
                 datasets: [{
                     label: 'Capacitées',
                     lineTension: 0.1,
-                    pointHoverBackgroundColor: '#ffffff',
+                    pointHoverBackgroundColor: '#f0f0f0',
                     pointHoverRadius: 5,
                     data: [0, 0, 0, 0, 0, 0]
                 }]
             },
             options: {
                 chartArea: {
-                    backgroundColor: '#0e131aff'
+                    backgroundColor: '#0e131a'
                 },
                 scale: {
                     gridLines: {
                         lineWidth: 1.5,
                         circular: true,
-                        color: '#242c38ff'
+                        color: '#242c38'
                     },
                     angleLines: {
-                        color: '#242c38ff',
+                        color: '#242c38',
                         lineWidth: 1.5
                     },
                     ticks: {
                         beginAtZero: true,
-                        fontColor: '#ffffff',
+                        fontColor: '#f0f0f0',
                         fontFamily: '\'Open sans\', sans-serif',
                         fontSize: 10,
                         fontStyle: '300',
@@ -179,7 +179,7 @@ export default {
                         showLabelBackdrop: false
                     },
                     pointLabels: {
-                        fontColor: '#ffffff',
+                        fontColor: '#f0f0f0',
                         fontFamily: '\'Open sans\', sans-serif',
                         fontStyle: '300',
                         fontSize: 14
@@ -203,7 +203,7 @@ export default {
                     }
                 },
                 animation: {
-                    duration: 1500
+                    duration: 2500
                 },
                 hover: {
                     animationDuration: 0
@@ -224,6 +224,14 @@ export default {
         const heroColor = state.color
         const color = Chart.helpers.color
         dataCapacitiesChart.data = [
+            0, 0, 0, 0, 0, 0
+        ]
+        dataCapacitiesChart.backgroundColor = color("#ffffff").alpha(0.5).rgbString()
+        dataCapacitiesChart.borderColor = "#ffffff"
+        dataCapacitiesChart.pointBackgroundColor = "#ffffff"
+        dataCapacitiesChart.pointBackgroundColor = "#ffffff"
+        state.charts.capacitiesChart.update(0)
+        dataCapacitiesChart.data = [
             heroPowerstats.intelligence,
             heroPowerstats.strength,
             heroPowerstats.speed,
@@ -231,23 +239,27 @@ export default {
             heroPowerstats.power,
             heroPowerstats.combat
         ]
-        dataCapacitiesChart.backgroundColor = color(heroColor).alpha(0.5).rgbString(),
-            dataCapacitiesChart.borderColor = heroColor,
-            dataCapacitiesChart.pointBackgroundColor = heroColor,
-            dataCapacitiesChart.pointBackgroundColor = heroColor,
-            state.charts.capacitiesChart.update()
+        dataCapacitiesChart.backgroundColor = color(heroColor).alpha(0.5).rgbString()
+        dataCapacitiesChart.borderColor = heroColor
+        dataCapacitiesChart.pointBackgroundColor = heroColor
+        dataCapacitiesChart.pointBackgroundColor = heroColor
+        setTimeout(() => {
+            state.charts.capacitiesChart.update(2500)
+        }, 1500)
     },
 
     /**
      * @desc Display loader when hero is changing (put class on body) and freeze body until the end of animation
      */
     addLoader: () => {
+        
         document.body.classList.remove('loaded')
         document.body.classList.add('fix-body')
         const loader = document.getElementById('page-loading');
         loader.style.display = 'block'
-        window.scroll(0, 0)
+        
         setTimeout(() => {
+            window.scroll(0, 0)
             document.body.classList.add('loaded')
             setTimeout(() => {
                 document.body.classList.remove('fix-body')
@@ -332,6 +344,7 @@ export default {
         actions.setRatioDone()
         actions.updateProgressBar()
     },
+    
     /**
      * @desc Update addItemInput value with input value
      */
@@ -425,8 +438,6 @@ export default {
             ease: Elastic.easeOut.config(1, 0.4)
         })
     }
-
-
 
 }
 

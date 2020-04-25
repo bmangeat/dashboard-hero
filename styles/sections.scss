@@ -1,9 +1,20 @@
+// @variables
+$font-color: #f0f0f0;
+$bg-blue-1: #0e131a;
+$bg-blue-2: #191f28;
+$bg-blue-3: #242c38;
+
+/*------------------------------
+Header
+------------------------------*/
+
 header {
+  position: relative;
   align-items: center;
   padding: 0.5rem 0.2rem;
   height: 3.5rem;
-  background: #191f28;
-  border-bottom: 1px solid #242c38;
+  background: $bg-blue-2;
+  border-bottom: 1px solid $bg-blue-3;
 
   .header-logoselect {
     display: flex;
@@ -14,36 +25,37 @@ header {
       display: flex;
       align-items: center;
       max-width: 200px;
-  
+
       .bg-league {
         fill: #181f29;
       }
-  
+
       .stroke-league {
         fill: none;
         stroke: #10151b;
         stroke-width: 8;
         stroke-miterlimit: 10;
       }
-  
+
       .grey-league {
         fill: #d1d1d1;
       }
     }
 
     #list-hero {
-      background: #0e131a;
+      background: $bg-blue-1;
       font-family: "Open-sans", sans-serif;
       font-size: 0.7rem;
-      color: #f0f0f0;
+      color: $font-color;
       border: none;
       border-radius: 0;
-      outline: 1px solid #0e131a;
+      outline: 1px solid $bg-blue-3;
       outline-offset: -1px;
       height: 1.5rem;
       width: 100%;
       max-width: 250px;
-  
+      padding-left: 2px;
+
       option {
         border-radius: 0;
       }
@@ -58,11 +70,14 @@ header {
     .header-profile {
 
       p {
-        color: #f0f0f0;
+        color: $font-color;
         text-align: right;
         flex: 1 0;
         font-size: 0.9rem;
         margin: 0 1rem 0 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
         strong {
           color: #ffbb00;
@@ -73,6 +88,7 @@ header {
     }
 
     .header-img {
+      flex: 0 0 40px;
       clip-path: circle();
       background-position: center;
       background-size: contain;
@@ -83,40 +99,30 @@ header {
 
 }
 
+/*------------------------------
+Footer
+------------------------------*/
+
 footer {
   background: #191F28;
+  border-top: 1px solid $bg-blue-3;
 
   a {
     width: 100%;
     font-weight: 300;
     font-size: 0.7rem;
-    color: #F0F0F0;
+    color: $font-color;
     text-decoration: none;
     text-align: center;
-
-    p {
-      margin: 0.5rem 0;
-    }
   }
 }
 
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 768px) {
   .header-profile {
     display: none;
   }
+
   #list-hero {
     text-align-last: center;
   }
-}
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-}
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-}
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-}
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
 }

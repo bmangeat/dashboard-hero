@@ -1,7 +1,6 @@
 import { h } from 'hyperapp'
 
 export default (props) =>
-
     props.hero.work.base === '-' ?
         'Coper City'
         :

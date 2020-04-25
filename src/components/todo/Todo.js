@@ -1,4 +1,4 @@
-import {h} from 'hyperapp'
+import { h } from 'hyperapp'
 import TodoList from '../todo/TodoList'
 import TodoItemInput from '../todo/TodoItemInput'
 import TodoProgressBar from './TodoProgressBar'

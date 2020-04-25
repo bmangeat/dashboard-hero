@@ -11,27 +11,21 @@ export default (props) =>
             <clipPath id="liquidMask">
                 <use href="#tube" class="liquidMask"/>
             </clipPath>
-
             <clipPath id="tubeMask">
                 <use href="#tube" class="liquidMask"/>
             </clipPath>
-                
             <path id="liquid" d="M757,552v490H357V552c50,0,50,20,100,20s50-20,100-20,50,20,100,20S707,552,757,552Z"/>
             <mask id="gradMask">
                 <use href="#liquid" class="liquid" x="0" fill="#FCEFD6"/>
                 <use href="#liquid" class="liquid" x="0" fill="#EEE" opacity="0.7"/>
             </mask>
-
         </defs>
-
         <g class="whole" transform="translate(0, -40)">
             <use href="#tube" class="tubeBg" fill="#C8D9D3" opacity="0.61"/>       
-            
             <g mask="url(#gradMask)">
                 <use href="#tube" fill="url(#liquidGrad)"/>
             </g>
             <line class="tubeShine" x1="371" y1="200" x2="371" y2="443" fill="none" stroke="#FFF" stroke-linecap="round" stroke-miterlimit="10" stroke-width="8" opacity="0.21" stroke-dasharray="153 30" stroke-dashoffset="-20"/>
-
             <g class="measurements" fill="none" stroke="#FCEFD6" stroke-width="3" stroke-linecap="round" opacity="1">
                 <line x1="358" y1="196" x2="370" y2="196"/>
                 <line x1="358" y1="234" x2="370" y2="234"/>
@@ -43,7 +37,5 @@ export default (props) =>
                 <line x1="358" y1="465" x2="370" y2="465"/>
                 <line x1="358" y1="503" x2="370" y2="503"/>
             </g>
-            
         </g>
-
     </svg>

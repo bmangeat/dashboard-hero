@@ -2,9 +2,8 @@ import {h} from 'hyperapp'
 
 import Logo from './WeatherLogo'
 
-let color, nb
-
 export default (props) => {
+    let color, nb
     if (props.weather === 'Clear') {
         color = 'st5'
         nb = 1

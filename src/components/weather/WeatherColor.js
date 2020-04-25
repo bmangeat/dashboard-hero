@@ -2,7 +2,7 @@ import { h } from 'hyperapp'
 
 export default (props) => {
     if (props.weather === 'Clear') {
-        return <linearGradient>
+        return <defs>
             <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="275" y1="290" x2="275" y2="-9.094947e-13">
                 <stop  offset="0" style="stop-color:#FFFFFF"/>
                 <stop  offset="0.2737" style="stop-color:#FFFFFF"/>
@@ -31,9 +31,9 @@ export default (props) => {
                 <stop  offset="0.7997" style="stop-color:#D295B0"/>
                 <stop  offset="1" style="stop-color:#CD90AC"/>
             </linearGradient>
-        </linearGradient>
+        </defs>
     } else if (props.weather === 'Clouds' || props.weather === 'Dust' || props.weather === 'Haze') {
-        return <linearGradient>
+        return <defs>
             <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="275" y1="290" x2="275" y2="-9.094947e-13">
                 <stop  offset="0" style="stop-color:#FFFFFF"/>
                 <stop  offset="0.1168" style="stop-color:#F4FAFE"/>
@@ -71,9 +71,9 @@ export default (props) => {
                 <stop  offset="0.8528" style="stop-color:#054E88"/>
                 <stop  offset="1" style="stop-color:#034B85"/>
             </linearGradient>
-        </linearGradient>
+        </defs>
     } else if (props.weather === 'Mist' || props.weather === 'Drizzle' || props.weather === 'Fog') {
-        return <linearGradient>
+        return <defs>
             <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="275" y1="290" x2="275" y2="-9.094947e-13">
                 <stop  offset="0" style="stop-color:#FFFFFF"/>
                 <stop  offset="0.1078" style="stop-color:#F6FAF4"/>
@@ -112,9 +112,9 @@ export default (props) => {
                 <stop  offset="0.795" style="stop-color:#168936"/>
                 <stop  offset="1" style="stop-color:#0D8537"/>
             </linearGradient>
-        </linearGradient>
+        </defs>
     } else if (props.weather === 'Rain') {
-        return <linearGradient>
+        return <defs>
             <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="275" y1="290" x2="275" y2="-9.094947e-13">
                 <stop  offset="0" style="stop-color:#FFFFFF"/>
                 <stop  offset="0.111" style="stop-color:#FFFEF4"/>
@@ -153,9 +153,9 @@ export default (props) => {
                 <stop  offset="0.7876" style="stop-color:#E79600"/>
                 <stop  offset="1" style="stop-color:#E59100"/>
             </linearGradient>
-        </linearGradient>
+        </defs>
     } else {
-        return <linearGradient>
+        return <defs>
             <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="275" y1="290" x2="275" y2="-9.094947e-13">
                 <stop  offset="1.385225e-07" style="stop-color:#FFFFFF"/>
                 <stop  offset="4.868253e-02" style="stop-color:#FCF4F4"/>
@@ -198,6 +198,6 @@ export default (props) => {
                 <stop  offset="0.8449" style="stop-color:#881811"/>
                 <stop  offset="1" style="stop-color:#841811"/>
             </linearGradient>
-        </linearGradient>
+        </defs>
     }
 }
