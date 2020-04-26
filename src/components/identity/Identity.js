@@ -7,7 +7,7 @@ import Biography from './IdentityBio'
 
 export default (props) =>
     <section class="comp comp-1 comp-identity">
-        <div class="comp-header">Identité</div>
+        <div class="comp-header">Identity</div>
         <div class="comp-body">
             <div class="identity-main row middle-md">
                 <Avatar

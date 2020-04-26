@@ -3,7 +3,7 @@ import Chart from 'chart.js'
 import { TweenMax, TimelineMax, Linear, Elastic } from 'gsap/all'
 
 const API_HERO = 'https://superheroapi.com/api.php/10213784867090388/'                                                      // url SuperHero API with key : 10213784867090388
-const API_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url OpenWeatherMap with key : 57a5dad53fd98ea8812e586a2b18d67e and id city (NYC) : 5128581
+const API_WEATHER = 'https://api.openweathermap.org/data/2.5/weather?id=5128581&appid=57a5dad53fd98ea8812e586a2b18d67e'      // url OpenWeatherMap with key : 57a5dad53fd98ea8812e586a2b18d67e and id city (NYC) : 5128581
 
 export default {
 
