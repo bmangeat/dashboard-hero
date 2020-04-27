@@ -11,6 +11,6 @@ export default (props) =>
         <input
             type= "button"
             onclick={props.onAdd}
-            value= "Valider"
+            value= "Add"
         ></input>
     </div>
