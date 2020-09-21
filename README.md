@@ -1,8 +1,20 @@
 # Hero's dashboard 
 
->This dashboard is created in the context of studies in [IMAC](https://www.ingenieur-imac.fr/). 
+## Presentation
 
-##Quickstart
+>This dashboard is created in the context of studies in [IMAC](https://www.ingenieur-imac.fr/).
+
+IMAC League Superhero Dashboard : choose your IMAC superhero and manage it!
+*https://github.com/bmangeat/dashboard-hero*<br/>
+*https://bmangeat.github.io/IMAC2-WEBJS/*
+
+* **Andréa Guillot** - (https://github.com/AndreaGuillot)
+* **Baptiste Ory** - (https://github.com/BaptisteOry)
+* **Brice Mangeat** - (https://github.com/bmangeat)
+* **Solène Mary-Vallée** - (https://github.com/SolHaine)
+
+
+## Quickstart
 
 - You can clone the repository in your folder.
 
@@ -10,7 +22,7 @@
 git clone https://github.com/bmangeat/dashboard-hero.git
 ```
 
-Architecture of repository
+- Architecture of repository
 ````
 ├── styles
 ├── src
