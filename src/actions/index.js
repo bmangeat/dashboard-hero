@@ -357,9 +357,6 @@ export default {
             return state
         }
 
-        const id = Math.random().toString(16).substring(2, 8)
-        const date = new Date().toISOString()
-
         axios.post('https://agile-escarpment-40479.herokuapp.com/todos', {
             completed: false,
             title: input,

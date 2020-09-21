@@ -1,7 +1,7 @@
-import Weather from '../weather/Weather'
 import { h } from 'hyperapp'
-import Todo from '../todo/Todo'
 
+import Weather from '../weather/Weather'
+import Todo from '../todo/Todo'
 import Header from '../header/Header'
 import Identity from '../identity/Identity'
 import Capacities from '../capacities/Capacities'

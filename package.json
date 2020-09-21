@@ -1,11 +1,11 @@
 {
-  "name": "hero-dashboard",
-  "version": "1.0.0",
-  "description": "Hero's dashboard : you can find everything you need here!",
+  "name": "imac-league",
+  "version": "1.0.1",
+  "description": "IMAC League Superhero Dashboard : choose your IMAC superhero and manage it!",
   "main": "index.js",
   "scripts": {
     "start": "parcel ./src/index.html --out-dir ./dist",
-    "build": "parcel build src/index.html -d dist --public-url ./",
+    "build": "parcel build ./src/index.html -d dist --public-url ./",
     "lint": "eslint ./src",
     "lintfix": "eslint ./src --fix"
   },
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "https://github.com/bmangeat/dashboard-hero.git"
   },
-  "author": "Best league IMAC",
+  "author": "Best League IMAC",
   "contributors": [
     "Andréa Guillot (https://github.com/AndreaGuillot)",
     "Baptiste Ory (https://github.com/BaptisteOry)",
@@ -30,14 +30,14 @@
     "babel-plugin-transform-react-jsx": "^6.24.1"
   },
   "devDependencies": {
-    "parcel": "^1.12.4",
-    "parcel-bundler": "^1.12.4",
-    "sass": "^1.26.3",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-babel": "^5.3.0"
+    "eslint": "^7.9.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "parcel": "^1.12.4",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.3"
   }
 }

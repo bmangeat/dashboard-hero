@@ -19,10 +19,11 @@ body {
   background-color: $bg-blue-1;
   color: $font-color;
   font: 1rem $font-stack;
+  min-width: 300px;
 }
 
 #heroWindow {
-  height: 100vh;
+  /*height: 100vh;*/
   min-height: 600px;
   display: flex;
   flex-direction: column;
