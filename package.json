@@ -8,9 +8,7 @@
     "start": "parcel ./src/index.html --out-dir ./build",
     "build": "parcel build ./src/index.html -d build --public-url ./",
     "lint": "eslint ./src",
-    "lintfix": "eslint ./src --fix",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "lintfix": "eslint ./src --fix"
   },
   "repository": {
     "type": "git",
