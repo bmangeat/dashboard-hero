@@ -1,13 +1,16 @@
-# Hero's dashboard 
+# IMAC League | Superhero Dashboard
 
 ## Presentation
 
 >This dashboard is created in the context of studies in [IMAC](https://www.ingenieur-imac.fr/).
 
 IMAC League Superhero Dashboard : choose your IMAC superhero and manage it!
+
+###  Links
 *https://github.com/bmangeat/dashboard-hero*<br/>
 *https://bmangeat.github.io/IMAC2-WEBJS/*
 
+###  Credits
 * **Andréa Guillot** - (https://github.com/AndreaGuillot)
 * **Baptiste Ory** - (https://github.com/BaptisteOry)
 * **Brice Mangeat** - (https://github.com/bmangeat)
