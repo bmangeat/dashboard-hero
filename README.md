@@ -8,7 +8,7 @@ IMAC League Superhero Dashboard : choose your IMAC superhero and manage it!
 
 ###  Links
 *https://github.com/bmangeat/dashboard-hero*<br/>
-*https://bmangeat.github.io/IMAC2-WEBJS/*
+*https://bmangeat.github.io/dashboard-hero/*
 
 ###  Credits
 * **Andréa Guillot** - (https://github.com/AndreaGuillot)
